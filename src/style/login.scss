@@ -5,5 +5,37 @@
     .body-wrapper {
         @include info-section();
         background-color: lightgrey;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+
+        .login-top {
+            @include loginRegisterSection();
+
+            p {
+                @include loginRegisterLabels();
+            }
+
+            input {
+                height: 20%;
+            }
+        }
+
+        .login-middle {
+            @include loginRegisterSection();
+
+            p {
+                @include loginRegisterLabels();
+            }
+            
+            input {
+                height: 20%;
+            }
+        }
+
+        button {
+            @include loginRegisterLabels();
+            margin: 0px;
+            border: 3px solid black;
+        }
     }
 }
