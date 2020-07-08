@@ -1,0 +1,76 @@
+.header-wrapper {
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 4fr 2fr;
+
+    .header-left-column {
+        align-items: center;
+
+        .hamburger {
+            background-color: transparent;
+            border: none;
+            padding: 10px;
+            color: white;
+            font-size: 3em;
+            text-shadow: 0 1px hsl(0,0%,85%),
+            0 2px hsl(0,0%,80%),
+            0 3px hsl(0,0%,75%),
+            0 4px hsl(0,0%,70%),
+            0 5px hsl(0,0%,65%),
+            0 6px hsl(0,0%,60%),
+            0 7px hsl(0,0%,55%),
+            0 7px 14px black;
+            -webkit-transition: -webkit-transform .2s ease-in-out;
+          transition:         transform .2s ease-in-out;
+
+          &:hover {
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+          }
+        }
+    }
+    
+
+    .logo {
+        text-align: center;
+        font-size: 4em;
+        text-shadow: 0 1px hsl(0,0%,85%),
+                     0 2px hsl(0,0%,80%),
+                     0 3px hsl(0,0%,75%),
+                     0 4px hsl(0,0%,70%),
+                     0 5px hsl(0,0%,65%),
+                     0 6px hsl(0,0%,60%),
+                     0 7px hsl(0,0%,55%),
+                     0 7px 14px black;
+    }
+
+    .header-right-column {
+        display: flex;
+        
+
+        a {
+            text-decoration: none;
+            font-family: 'Fira Sans Condensed', sans-serif;
+            color: white;
+            background-color: transparent;
+            border: 3px solid transparent;
+            text-align: center;
+            font-size: 2em;
+            text-shadow: 0 1px hsl(0,0%,85%),
+                         0 2px hsl(0,0%,80%),
+                         0 3px hsl(0,0%,75%),
+                         0 4px hsl(0,0%,70%),
+                         0 5px hsl(0,0%,65%),
+                         0 6px hsl(0,0%,60%),
+                         0 7px hsl(0,0%,55%),
+                         0 7px 14px black;
+
+            &:hover {
+                border-bottom: 3px solid white;
+            }
+        }
+    }
+
+    
+}

@@ -1,0 +1,22 @@
+@mixin main-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr;
+    align-items: center;
+}
+
+@mixin info-section {
+    margin-left: 100px;
+        height: 40%;
+        width: 60%;
+        display: flex;
+        align-items: center; 
+        justify-content: center; 
+        font-family: 'Fira Sans Condensed', sans-serif;
+        text-align: center;
+        border: 10px solid white;
+        -webkit-box-shadow: 24px 45px 63px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 24px 45px 63px 0px rgba(0,0,0,0.75);
+        box-shadow: 24px 45px 63px 0px rgba(0,0,0,0.75);
+}

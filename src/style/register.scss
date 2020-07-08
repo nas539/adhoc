@@ -1,0 +1,9 @@
+.register-page-wrapper {
+    @include main-wrapper();
+    background-color: goldenrod;
+
+    .body-wrapper {
+        @include info-section();
+        background-color: lightgrey;
+    }
+}
