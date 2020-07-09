@@ -1,0 +1,11 @@
+.monthview-page-wrapper {
+    @include main-wrapper();
+    background-color: rgb(56, 119, 56);
+
+    .body-wrapper {
+        @include info-section();
+        height: 80%;
+        background-color: lightsteelblue;
+
+    }
+}

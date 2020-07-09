@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Navigation from './navigation';
+
 
 
 export default function header() {
     return (
         <div className="header-wrapper">
             <div className="header-left-column">
-            <button className="hamburger"><i class="fas fa-bars"></i></button>
+                <Navigation />   
             </div>
-           
             
             <div className="logo">
                 ad.Hoc
