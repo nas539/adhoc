@@ -4,7 +4,8 @@ import { Route, NavLink, HashRouter } from "react-router-dom";
 import Home from "./home";
 import Login from "./login";
 import Register from "./register";
-import MonthView from "./monthView";
+import Appointment from "./appointmentView";
+import SaveTheDate from './saveTheDate'
 
 
 export default class NavigationMenu extends Component {
@@ -18,13 +19,15 @@ export default class NavigationMenu extends Component {
                    <li><NavLink  exact to="/">Home</NavLink></li>
                     <li><NavLink to="/login">Login</NavLink></li>
                     <li><NavLink to="/register">Register</NavLink></li>
-                    <li><NavLink to="/monthview">MonthView</NavLink></li>
+                    <li><NavLink to="/appointment">Appointments</NavLink></li>
+                    <li><NavLink to="/savethedate">Save the Date</NavLink></li>
               </ul>
               <div className="content">
                                 <Route exact path="/" component={Home}/>
                                 <Route path="/login" component={Login}/>
                                 <Route path="/register" component={Register}/>
-                                <Route path="/monthview" component={MonthView}/>  
+                                <Route path="/appointment" component={Appointment}/>  
+                                <Route path="/savethedate" component={SaveTheDate}/> 
                         </div>
                     </div>
             </HashRouter>

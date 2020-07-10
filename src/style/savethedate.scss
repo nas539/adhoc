@@ -1,0 +1,24 @@
+.save-the-date-page-wrapper {
+    @include main-wrapper();
+    background-color: lightslategray;
+
+    .body-wrapper {
+        @include info-section();
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        background-color: lightsalmon;
+
+        .sheduler-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            p {
+                margin-right: 5px;
+            }
+        }
+    }
+}

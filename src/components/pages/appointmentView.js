@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MonthCalendar from './monthCalendar'
 import { List, ListItem } from 'react-onsenui';
 import Header from './header';
 import Footer from './footer';
