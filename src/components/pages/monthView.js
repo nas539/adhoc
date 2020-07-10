@@ -12,10 +12,10 @@ export default class MonthView extends Component {
                 <Header />
                 
                 <div className="body-wrapper">
-                <ListItem expandable>
+                <List expandable>
                             Tap to expand
                             <div class="expandable-content">This is shown when expanded</div>
-                </ListItem>
+                </List>
                 </div>
                 <Footer />
             </div>
