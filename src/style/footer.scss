@@ -1,5 +1,8 @@
 .footer-wrapper {
-    color: white;
+    text-align: center;
+
+    a {
+        color: white;
             font-size: 3em;
             text-shadow: 0 1px hsl(0,0%,85%),
             0 2px hsl(0,0%,80%),
@@ -9,9 +12,11 @@
             0 6px hsl(0,0%,60%),
             0 7px hsl(0,0%,55%),
             0 7px 14px black;
-            text-align: center;
-            
-            i {
-                padding: 5px;
+            padding: 5px;
+
+            &:hover {
+                color: lightgoldenrodyellow;
             }
+           
+    }
 }

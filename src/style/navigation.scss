@@ -13,6 +13,7 @@
   }
 
   a {
+    border: 3px solid transparent;
     text-decoration: none;
     @include loginRegisterLabels();
 
@@ -21,6 +22,7 @@
 
     &:hover {
         color: lightgray;
+        border-bottom: 3px solid black;
     }
 
   }

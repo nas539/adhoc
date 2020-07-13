@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function footer() {
     return (
         <div className="footer-wrapper">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-linkedin"></i>
+            <a href="http://www.facebook.com"><i className="fab fa-facebook-f"></i></a>
+            <a href="http://www.twitter.com"><i className="fab fa-twitter"></i></a>
+            <a href="http://www.linkedin.com"><i className="fab fa-linkedin"></i></a>
         </div>
     )
 }
