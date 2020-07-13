@@ -24,6 +24,7 @@ export default class Login extends Component {
         }
 
         this.state = {
+            status: "loggedOut",
             usernameInput: "",
             passwordInput: "",
             errorMessage: "none"
@@ -50,8 +51,8 @@ export default class Login extends Component {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
-                    usernameInput: this.state.usernameInput,
-                    passwordInput: this.state.passwordInput
+                    username: this.state.usernameInput,
+                    password: this.state.passwordInput
                 })
             })
             .then(response => response.json())
@@ -62,7 +63,10 @@ export default class Login extends Component {
                     this.setState({ errorMessage: "not verified" })
                 }
                 else {
-                    this.setState({ errorMessage: "none" })
+                    this.setState({ 
+                        errorMessage: "none",
+                        status: "loggedIn"
+                    })
                     Cookies.set("username", this.state.usernameInput)
                     this.state.history.push("/appointments")
                 }
