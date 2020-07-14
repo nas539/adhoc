@@ -48,6 +48,7 @@ export default class Register extends Component {
             })
         } else {
             fetch("http://127.0.0.1:5000/user/add", { 
+            mode: "no-cors",
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({

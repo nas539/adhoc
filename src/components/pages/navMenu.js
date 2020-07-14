@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink, HashRouter } from "react-router-dom";
+import { Route, HashRouter } from "react-router-dom";
 
 import Home from "./home";
 import Login from "./login";
@@ -14,11 +14,8 @@ import NavLoggedInMenu from './loggedInMenu';
 
 export default class NavigationMenu extends Component {
     constructor(props) {
-        super(props);
-
-        this.state = {
-            status: "loggedOut"
-        }
+        super(props); 
+        
     }
  
     render() {
@@ -26,8 +23,10 @@ export default class NavigationMenu extends Component {
         <div className="menu-toggle">
             <HashRouter className="nav" >
                 <div> 
-                    {this.state.status === "loggedOut"
-                    ? <NavLoggedOutMenu />
+                    {this.props.status === "loggedOut"
+                    ? <NavLoggedOutMenu 
+
+                    />
                     : <NavLoggedInMenu />}
                    
                     <div className="content">

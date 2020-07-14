@@ -7,6 +7,8 @@ export default function navLoggedInMenu(props) {
     return (
         <ul className="header" >
             <li><NavLink  exact to="/">Home</NavLink></li>
+            <li><NavLink to="/login">Login</NavLink></li>
+            <li><NavLink to="/register">Register</NavLink></li>
             <li><NavLink to="/appointment">Daily</NavLink></li>
             <li><NavLink to="/savethedate">AddEvent</NavLink></li>   
         </ul>

@@ -19,14 +19,14 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
 
-        if (Cookies.get("usernameInput")) {
+        if (Cookies.get("username")) {
             this.state.history.push("/appointments")
         }
 
         this.state = {
             status: "loggedOut",
-            usernameInput: "",
-            passwordInput: "",
+            username: "",
+            password: "",
             errorMessage: "none"
         }
 
@@ -43,16 +43,17 @@ export default class Login extends Component {
 
     handleLoginSubmit(event) {
         event.preventDefault();
-        if (this.state.usernameInput === "" || this.state.passwordInput === "") {
+        if (this.state.username === "" || this.state.password === "") {
             this.setState({ errorMessage: "blank field" })
         }
         else {
             fetch("http://127.0.0.1:5000/user/login", {
+                mode: "no-cors",
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
-                    username: this.state.usernameInput,
-                    password: this.state.passwordInput
+                    username: this.state.username,
+                    password: this.state.password
                 })
             })
             .then(response => response.json())
@@ -67,8 +68,9 @@ export default class Login extends Component {
                         errorMessage: "none",
                         status: "loggedIn"
                     })
-                    Cookies.set("username", this.state.usernameInput)
+                    Cookies.set("username", this.state.username)
                     this.state.history.push("/appointments")
+                    console.log("logged in")
                 }
              })
             .catch(error => {
