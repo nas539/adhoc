@@ -25,6 +25,7 @@ export default class SaveTheDateome extends Component {
             time: "10:00",
             username: ""
         }
+        
         this.handleTimeChange = this.handleTimeChange.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -47,14 +48,6 @@ export default class SaveTheDateome extends Component {
 
       handleClick(event) {
         event.preventDefault();
-        console.log(this.state.title)
-        console.log(this.state.company)
-        console.log(this.state.date)
-        console.log(typeof(this.state.date))
-        console.log(this.state.time)
-        console.log(typeof(this.state.time))
-        console.log(this.state.username)
-        // JSON.stringify(this.state.date)
         fetch("http://127.0.0.1:5000/appointment/add", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
