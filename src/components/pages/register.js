@@ -90,7 +90,7 @@ export default class Register extends Component {
         return (
                 <div className="register-page-wrapper" >
                     <Header />
-                    <StyleRoot>
+                    <StyleRoot className="middle">
                         <div className="body-wrapper"style={styles.slideInRight}>
                             <div className="register-section">
                                 <p>Username: </p>

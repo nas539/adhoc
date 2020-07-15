@@ -1,37 +1,68 @@
 .save-the-date-page-wrapper {
     @include main-wrapper();
-    background-color: lightslategray;
+    background-color:  goldenrod;
+    height: 100vh;
+    justify-items: center;
 
-    .body-wrapper {
-        @include info-section();
+    .middle {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 80%;
-        background-color: lightsalmon;
-
-        .sheduler-section {
+        .body-wrapper {
+            @include info-section();
             display: flex;
+            flex-direction: column;
             justify-content: space-around;
             align-items: center;
+            height: 100%;
+            background-color: rgb(193, 223, 193);
 
-            @include loginRegisterSection();
-            
-            p {
-                @include loginRegisterLabels();
+            .sheduler-section {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                @include loginRegisterSection();
+                
+                p {
+                    @include loginRegisterLabels();
+                }
+
+                input {
+                    height: 20%;
+                }
             }
 
-            input {
-                height: 20%;
+            .calendar-wrapper {
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                height: 50%;
             }
-        }
 
-        button {
-            @include loginRegisterLabels();
-            margin: 0px;
-            border: 3px solid black;
-        }
+            .time-wrapper {
+                background-color: white;
+
+                .react-time-picker__wrapper {
         
+                    .react-time-picker__inputGroup__input, #text-field-container, input, span {
+                        font-family: 'Fira Sans Condensed', sans-serif;
+                        color: black;
+                        height: 100%;                            
+                    }
+
+                    button {
+                        height: 100%;
+                    }
+                }
+            }
+
+            button {
+                @include loginRegisterLabels();
+                margin: 0px;
+                margin-bottom: 10px;
+                border: 3px solid black;
+            }  
+        }
     }
 }

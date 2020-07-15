@@ -2,31 +2,37 @@
     @include main-wrapper();
     background-color: rgb(236, 71, 71);
 
-    .body-wrapper {
-        @include info-section();
-        height: 80%;
-        background-color: lightgoldenrodyellow;
+    .middle {
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
 
-        .register-section {
-            @include loginRegisterSection();
-            
-            p {
+        .body-wrapper {
+            @include info-section();
+            height: 80%;
+            background-color: lightgoldenrodyellow;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+            .register-section {
+                @include loginRegisterSection();
+                
+                p {
+                    @include loginRegisterLabels();
+                }
+
+                input {
+                    height: 20%;
+                }
+            }
+
+            button {
                 @include loginRegisterLabels();
+                margin: 0px;
+                border: 3px solid black;
             }
-
-            input {
-                height: 20%;
-            }
-        }
-
-        button {
-            @include loginRegisterLabels();
-            margin: 0px;
-            border: 3px solid black;
         }
     }
 }

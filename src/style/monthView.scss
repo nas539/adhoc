@@ -1,11 +1,51 @@
 .monthview-page-wrapper {
     @include main-wrapper();
     background-color: rgb(56, 119, 56);
+    
+    .middle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    .body-wrapper {
-        @include info-section();
-        height: 80%;
-        background-color: lightsteelblue;
+        .body-wrapper {
+            @include info-section();
+            height: 100%;
+            background-color: lightsteelblue;
+            display: flex;
 
+            .appointments {
+                .appointment {
+                    list-style-type: none;
+                    margin-bottom: 10px;
+                }
+            }
+
+            .sheduler-section {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                outline: none;
+                flex-direction: column;
+
+                p {
+                    @include loginRegisterLabels();
+                } 
+                input {
+                    outline: none;
+                    height: 25px;
+                } 
+
+                button {
+                    @include loginRegisterLabels();
+                    margin-top: 10px;
+                    border: 3px solid black;
+                    outline: none;
+
+                    &:hover {
+                        color: slategray;
+                    }
+                }
+            }
+        }
     }
 }

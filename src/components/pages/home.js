@@ -19,7 +19,7 @@ export default class Home extends Component {
             
                 <div className="home-page-wrapper" >
                     <Header />
-                    <StyleRoot>
+                    <StyleRoot className="middle">
                     <div className="body-wrapper" style={styles.slideInRight}>
                         <p>Looking for a job?</p> 
                         <p>ad.Hoc is there</p> 

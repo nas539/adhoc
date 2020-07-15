@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { slideInRight } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
+import ReactDOM from "react-dom";
+import Popup from "reactjs-popup";
 
 import Header from './header';
 import Footer from './footer';
@@ -18,11 +20,22 @@ export default class MonthView extends Component {
 
         this.state = {
             data: [],
-            username: ""
+            username: "",
         }
+
+        // this.handleDelete = this.handleDelete.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.getAppointments = this.getAppointments.bind(this);
     }
+
+    // handleDelete(id) {
+    //     fetch(`http://127.0.0.1:5000/appointment/delete/${this.props.key}`, { method: "DELETE" })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         console.log(data)
+    //     })
+    //     .catch(error => console.log(error))
+    // }
 
     handleInputChange(event) {
         this.setState({
@@ -52,9 +65,17 @@ export default class MonthView extends Component {
         return (
             <ul>
                 {this.state.data.map(item => (
-                    <li key={item.id}>
-                       <a>{item.title} | {item.company}</a> 
+                    <li className="appointment" key={item.id}>
+                       <Popup modal trigger={<button>{item.title}: {item.company}</button>}>
+                            <ul>
+                                <li>Title: {item.title}</li>
+                                <li>Company: {item.company}</li>
+                                <li>Date: {item.date}</li>
+                                <li>Time: {item.time}</li>
+                            </ul>
+                       </Popup>
                     </li>
+                    
                 ))}
             </ul>
         )
@@ -65,7 +86,7 @@ export default class MonthView extends Component {
         return (
                 <div className="monthview-page-wrapper" >
                     <Header />
-                    <StyleRoot>
+                    <StyleRoot className="middle">
                         <div className="body-wrapper" style={styles.slideInRight}>
                             <div className="sheduler-section">
                                 <p>Username: </p>
@@ -76,9 +97,10 @@ export default class MonthView extends Component {
                                     placeholder="Username"
                                     onChange={this.handleInputChange}
                                 />
+                                <button type="button" onClick={this.getAppointments}>Get Appointments</button>
                             </div>
-                            <button type="button" onClick={this.getAppointments}>Get Appointments</button>
-                            <div>
+                            
+                            <div className="appointments">
                                 {this.renderAppointments()}
                             </div>
                             

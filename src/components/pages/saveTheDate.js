@@ -25,7 +25,7 @@ export default class SaveTheDateome extends Component {
             time: "10:00",
             username: ""
         }
-        
+
         this.handleTimeChange = this.handleTimeChange.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -72,61 +72,64 @@ export default class SaveTheDateome extends Component {
         return (
                 <div className="save-the-date-page-wrapper" >
                     <Header />
-                    <StyleRoot>
-                        <div className="body-wrapper"style={styles.slideInRight}>
-                               <div className="sheduler-section">
-                                     <p>Title: </p>
-                                    <input 
-                                        type="text" 
-                                        name="title" 
-                                        value={this.state.title} 
-                                        placeholder="Title"
-                                        onChange={this.handleInputChange}
-                                    />
-                                </div>
-
+                    <div className="middle-section-wrapper">
+                        <StyleRoot className="middle">
+                            <div className="body-wrapper"style={styles.slideInRight}>
                                 <div className="sheduler-section">
-                                    <p>Company: </p>
-                                    <input 
-                                        type="text" 
-                                        name="company" 
-                                        value={this.state.company} 
-                                        placeholder="Company"
-                                        onChange={this.handleInputChange}
-                                    />
-                                </div>
+                                        <p>Title: </p>
+                                        <input 
+                                            type="text" 
+                                            name="title" 
+                                            value={this.state.title} 
+                                            placeholder="ex: Interview, Follow up..."
+                                            onChange={this.handleInputChange}
+                                        />
+                                    </div>
 
-                                <div className="sheduler-section">
-                                    <p>Date: </p>
-                                    <Calendar
-                                        onChange={this.onChange}
-                                        value={this.state.date}
-                                    />
-                                </div>
+                                    <div className="sheduler-section">
+                                        <p>Company: </p>
+                                        <input 
+                                            type="text" 
+                                            name="company" 
+                                            value={this.state.company} 
+                                            placeholder="Company"
+                                            onChange={this.handleInputChange}
+                                        />
+                                    </div>
 
-                                <div className="sheduler-section">
-                                    <p>Time: </p>
-                                    <TimePicker
-                                        onChange={this.handleTimeChange}
-                                        value={this.state.time}
-                                    />
-                                </div>
+                                    <div className="sheduler-section calendar-wrapper">
+                                        <p>Date: </p>
+                                        <Calendar
+                                            onChange={this.onChange}
+                                            value={this.state.date}
+                                        />
+                                    </div>
 
-                                <div className="sheduler-section">
-                                     <p>Username: </p>
-                                    <input 
-                                        type="text" 
-                                        name="username" 
-                                        value={this.state.username} 
-                                        placeholder="Username"
-                                        onChange={this.handleInputChange}
-                                    />
-                                </div>
-                                
-                                <button type="submit" onClick={this.handleClick}>Save</button>
+                                    <div className="sheduler-section">
+                                        <p>Time: </p>
+                                        <TimePicker 
+                                            className="time-wrapper"
+                                            onChange={this.handleTimeChange}
+                                            value={this.state.time}
+                                        />
+                                    </div>
 
-                        </div>
-                    </StyleRoot>
+                                    <div className="sheduler-section">
+                                        <p>Username: </p>
+                                        <input 
+                                            type="text" 
+                                            name="username" 
+                                            value={this.state.username} 
+                                            placeholder="Username"
+                                            onChange={this.handleInputChange}
+                                        />
+                                    </div>
+                                    
+                                    <button type="submit" onClick={this.handleClick}>Save</button>
+
+                            </div>
+                        </StyleRoot>
+                    </div>
                     <Footer />
                 </div>
         )
