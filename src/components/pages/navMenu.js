@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
-import { Route, HashRouter } from "react-router-dom";
+import { Route, HashRouter, NavLink } from "react-router-dom";
 
 import Home from "./home";
 import Login from "./login";
 import Register from "./register";
 import Appointment from "./appointmentView";
 import SaveTheDate from './saveTheDate';
-import NavLoggedOutMenu from './loggedOutNav';
-import NavLoggedInMenu from './loggedInMenu';
+
 
 
 
 
 export default class NavigationMenu extends Component {
-    constructor(props) {
-        super(props); 
-        
-    }
+    
  
     render() {
      return ( 
         <div className="menu-toggle">
             <HashRouter className="nav" >
                 <div> 
-                    {this.props.status === "loggedOut"
-                    ? <NavLoggedOutMenu 
 
-                    />
-                    : <NavLoggedInMenu />}
+                    <ul className="header" >
+                        <li><NavLink  exact to="/">Home</NavLink></li>
+                        
+                        <li><NavLink to="/register">Register</NavLink></li>
+                        <li><NavLink to="/appointment">Daily</NavLink></li>
+                        <li><NavLink to="/savethedate">AddEvent</NavLink></li>   
+                    </ul>
+                   
                    
                     <div className="content">
                         <Route exact path="/" component={Home}/>

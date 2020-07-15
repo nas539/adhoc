@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { slideInRight } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
-import DatePicker from "react-datepicker";
-import { registerLocale } from  "react-datepicker";
-import en from 'date-fns/locale/es';
-import Cookies from "js-cookie"
+import Calendar from 'react-calendar';
+import TimePicker from 'react-time-picker';
 
 import Header from "./header";
 import Footer from "./footer";
-
-registerLocale('en', en)
 
 const styles = {
     slideInRight: {
@@ -18,19 +14,18 @@ const styles = {
       }
   }
  
-import "react-datepicker/dist/react-datepicker.css";
-
 export default class SaveTheDateome extends Component {
     constructor(props){
         super(props);
 
         this.state = {
-            startDate: new Date(),
+            date: new Date(),
             title: "",
             company: "",
+            time: "10:00",
             username: ""
         }
-        
+        this.handleTimeChange = this.handleTimeChange.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -38,28 +33,36 @@ export default class SaveTheDateome extends Component {
 
     handleChange = date => {
         this.setState({
-              startDate: date
+              date: date
         });  
       }
 
       handleInputChange(event) {
         this.setState({
             [event.target.name]: event.target.value,
-            errorMessage: "none"
         })
       }
 
+      handleTimeChange = time => this.setState({ time: this.state.time })
+
       handleClick(event) {
         event.preventDefault();
-        JSON.stringify(this.state.startDate)
+        console.log(this.state.title)
+        console.log(this.state.company)
+        console.log(this.state.date)
+        console.log(typeof(this.state.date))
+        console.log(this.state.time)
+        console.log(typeof(this.state.time))
+        console.log(this.state.username)
+        // JSON.stringify(this.state.date)
         fetch("http://127.0.0.1:5000/appointment/add", {
-                mode: "no-cors",
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
                     title: this.state.title,
                     company: this.state.company,
-                    startDate: this.state.startDate,
+                    date: this.state.date,
+                    time: this.state.time,
                     username: this.state.username
                 })
             })
@@ -101,13 +104,18 @@ export default class SaveTheDateome extends Component {
                                 </div>
 
                                 <div className="sheduler-section">
-                                <p>Date & Time: </p>
-                                    <DatePicker
-                                        locale="en"
-                                        selected={this.state.startDate}
-                                        onChange={this.handleChange}
-                                        showTimeSelect
-                                        dateFormat="Pp"
+                                    <p>Date: </p>
+                                    <Calendar
+                                        onChange={this.onChange}
+                                        value={this.state.date}
+                                    />
+                                </div>
+
+                                <div className="sheduler-section">
+                                    <p>Time: </p>
+                                    <TimePicker
+                                        onChange={this.handleTimeChange}
+                                        value={this.state.time}
                                     />
                                 </div>
 
