@@ -17,7 +17,7 @@ export default class MonthView extends Component {
         super(props);
 
         this.state = {
-            items: [],
+            data: [],
             username: ""
         }
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -35,42 +35,31 @@ export default class MonthView extends Component {
             method: "GET",
             header: { "Content-Type": "application/json" }
         })
-        .then(response => response.json()
-            
-            // let array = Array.from(response.json())
-            // console.log(array); 
-            // this.setState({items: array});
-            // console.log(items); 
-        )
+        .then(response => response.json())
         .then(data => {
-            console.log(data);  
+            console.log(data); 
+            this.setState({
+                data: data
+            }) 
          })
-        // .then(data => {
-        //     this.setState({ data: data })
-        //     console.log(data)
-        // })
         .catch(error => {
             console.log(error)
         })
         
     }
 
-    // renderAppointments() {
-    //     const apppointmentContainer = [];
-    //     this.state.data.forEach(appointmentData => {
-    //         apppointmentContainer.push(
-    //             <SingleAppointment
-    //                 key={appointmentData.id}
-    //                 id={appointmentData.id}
-    //                 title={appointmentData.title}
-    //                 company={appointmentData.company}
-    //                 startDate={appointmentData.start_date}
-    //                 handleDelete={this.handleDelete}
-    //             />
-    //         )
-    //     })
-    //     return apppointmentContainer;
-    // }
+    renderAppointments() {
+        return (
+            <ul>
+                {this.state.data.map(item => (
+                    <li key={item.id}>
+                       <a>{item.title} | {item.company}</a> 
+                    </li>
+                ))}
+            </ul>
+        )
+       
+    }
    
     render() {
         return (
@@ -89,7 +78,10 @@ export default class MonthView extends Component {
                                 />
                             </div>
                             <button type="button" onClick={this.getAppointments}>Get Appointments</button>
-                            {/* {this.renderAppointments()} */}
+                            <div>
+                                {this.renderAppointments()}
+                            </div>
+                            
                         </div>
                     </StyleRoot>
                     <Footer />
