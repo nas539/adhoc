@@ -47,7 +47,7 @@ export default class Login extends Component {
             this.setState({ errorMessage: "blank field" })
         }
         else {
-            fetch("http://127.0.0.1:5000/user/login", {
+            fetch("https://nas-adhoc-backend.herokuapp.com//user/login", {
                 mode: "no-cors",
                 method: "POST",
                 headers: { "content-type": "application/json" },

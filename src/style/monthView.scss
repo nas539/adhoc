@@ -22,6 +22,10 @@
                         background-color: transparent;
                         border: 3px solid transparent;
                         @include loginRegisterLabels();
+
+                        &:hover {
+                            border-bottom: 3px solid black;
+                        }
                     }
 
                     .popup {
@@ -71,5 +75,15 @@
 
     li {
         margin: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .monthview-page-wrapper {
+        font-size: 0.5em;
+
+        .body-wrapper {
+            flex-direction: column;
+        }
     }
 }

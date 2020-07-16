@@ -48,7 +48,7 @@ export default class SaveTheDateome extends Component {
 
       handleClick(event) {
         event.preventDefault();
-        fetch("http://127.0.0.1:5000/appointment/add", {
+        fetch("https://nas-adhoc-backend.herokuapp.com//appointment/add", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({

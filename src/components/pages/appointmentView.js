@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { slideInRight } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
-import ReactDOM from "react-dom";
 import Popup from "reactjs-popup";
 
 import Header from './header';
@@ -23,19 +22,9 @@ export default class MonthView extends Component {
             username: "",
         }
 
-        // this.handleDelete = this.handleDelete.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.getAppointments = this.getAppointments.bind(this);
     }
-
-    // handleDelete(id) {
-    //     fetch(`http://127.0.0.1:5000/appointment/delete/${this.props.key}`, { method: "DELETE" })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         console.log(data)
-    //     })
-    //     .catch(error => console.log(error))
-    // }
 
     handleInputChange(event) {
         this.setState({
@@ -44,7 +33,7 @@ export default class MonthView extends Component {
       }
 
     getAppointments() {
-        fetch(`http://127.0.0.1:5000/appointment/get/data/${this.state.username}`, {
+        fetch(`https://nas-adhoc-backend.herokuapp.com//appointment/get/data/${this.state.username}`, {
             method: "GET",
             header: { "Content-Type": "application/json" }
         })

@@ -59,7 +59,6 @@
 
             button {
                 @include loginRegisterLabels();
-                margin: 0px;
                 margin-bottom: 10px;
                 border: 3px solid black;
             }  
@@ -69,27 +68,51 @@
 
 @media screen and (max-width: 480px) {
     .save-the-date-page-wrapper {
-        font-size: 0.5em;
+        font-size: 0.4em;
 
-        .sheduler-section {
-            text-shadow: none;
-            flex-direction: column;
-            text-shadow: none;
+        .body-wrapper {
             color: black;
+            text-shadow: none;
 
-            
-            }
-            .calendar-wrapper {
+            .sheduler-section {
+               
+                flex-direction: column;
                 text-shadow: none;
-                font-size: 0.5em;
-                width: 80%;
-            }
-
-            .time-wrapper {
-                height: 25px;
-                button {
-                    height: 100%;
+                color: black;
+                width: 100%;
+                font-size: 1em;
+    
+                
                 }
+                .calendar-wrapper {
+                    .react-calendar {
+
+                        .react-calendar__month-view__weekdays {
+                            visibility: hidden;
+                        }
+                    
+                        button {
+                            border: none;
+                            margin-bottom: 2px;
+                            margin-left: 2px;
+                            font-size: medium;
+                            color: black;
+                            text-shadow: none;
+            
+                        }
+                    }
+    
+                    
+                }
+    
+                .time-wrapper {
+                    height: 25px;
+                    button {
+                        font-size: 0.5em;
+                    }
+            }
         }
+
+        
     }
 }

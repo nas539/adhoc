@@ -38,7 +38,12 @@
 }
 
 @media screen and (max-width: 400px) {
-    .register-section {
-        flex-direction: column;
+    .register-page-wrapper {
+        font-size: 0.7em;
+
+        .register-section {
+            flex-direction: column;
+        }
     }
+  
 }

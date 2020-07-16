@@ -47,7 +47,7 @@ export default class Register extends Component {
                 errorMessage: "mismatched passwords"
             })
         } else {
-            fetch("http://127.0.0.1:5000/user/add", { 
+            fetch("https://nas-adhoc-backend.herokuapp.com//user/add", { 
             mode: "no-cors",
             method: "POST",
             headers: { "content-type": "application/json" },
