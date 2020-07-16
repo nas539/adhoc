@@ -10,6 +10,7 @@
         align-items: center;
         .body-wrapper {
             @include info-section();
+            font-size: 0.75em;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
