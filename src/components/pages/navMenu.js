@@ -19,15 +19,12 @@ export default class NavigationMenu extends Component {
         <div className="menu-toggle">
             <HashRouter className="nav" >
                 <div> 
-
                     <ul className="header" >
-                        <li><NavLink  exact to="/">Home</NavLink></li>
-                        
-                        <li><NavLink to="/register">Register</NavLink></li>
-                        <li><NavLink to="/appointment">Daily</NavLink></li>
-                        <li><NavLink to="/savethedate">AddEvent</NavLink></li>   
+                        <li><NavLink  exact to="/"><i className="fas fa-home"></i></NavLink></li>
+                        <li><NavLink to="/register"><i className="fas fa-user-plus"></i></NavLink></li>
+                        <li><NavLink to="/appointment"><i className="fas fa-calendar-alt"></i></NavLink></li>
+                        <li><NavLink to="/savethedate"><i className="fas fa-plus-square"></i></NavLink></li>   
                     </ul>
-                   
                    
                     <div className="content">
                         <Route exact path="/" component={Home}/>

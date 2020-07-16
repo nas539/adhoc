@@ -30,9 +30,15 @@
 
             button {
                 @include loginRegisterLabels();
-                margin: 0px;
+                margin: 10px;
                 border: 3px solid black;
             }
         }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .register-section {
+        flex-direction: column;
     }
 }

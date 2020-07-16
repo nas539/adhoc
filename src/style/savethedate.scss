@@ -66,3 +66,30 @@
         }
     }
 }
+
+@media screen and (max-width: 480px) {
+    .save-the-date-page-wrapper {
+        font-size: 0.5em;
+
+        .sheduler-section {
+            text-shadow: none;
+            flex-direction: column;
+            text-shadow: none;
+            color: black;
+
+            
+            }
+            .calendar-wrapper {
+                text-shadow: none;
+                font-size: 0.5em;
+                width: 80%;
+            }
+
+            .time-wrapper {
+                height: 25px;
+                button {
+                    height: 100%;
+                }
+        }
+    }
+}

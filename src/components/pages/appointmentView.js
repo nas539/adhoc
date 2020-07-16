@@ -66,20 +66,19 @@ export default class MonthView extends Component {
             <ul>
                 {this.state.data.map(item => (
                     <li className="appointment" key={item.id}>
-                       <Popup modal trigger={<button>{item.title}: {item.company}</button>}>
-                            <ul>
-                                <li>Title: {item.title}</li>
-                                <li>Company: {item.company}</li>
-                                <li>Date: {item.date}</li>
-                                <li>Time: {item.time}</li>
+                       <Popup classname="popup" modal trigger={<button>{item.title}: {item.company}</button>}>
+                            <ul className="modal-appointment">
+                                <li className="modal">Title: {item.title}</li>
+                                <li className="modal">Company: {item.company}</li>
+                                <li className="modal">Date: {item.date}</li>
+                                <li className="modal">Time: {item.time}</li>
                             </ul>
                        </Popup>
                     </li>
                     
                 ))}
             </ul>
-        )
-       
+        ) 
     }
    
     render() {

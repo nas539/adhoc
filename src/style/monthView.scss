@@ -17,6 +17,21 @@
                 .appointment {
                     list-style-type: none;
                     margin-bottom: 10px;
+
+                    button {
+                        background-color: transparent;
+                        border: 3px solid transparent;
+                        @include loginRegisterLabels();
+                    }
+
+                    .popup {
+                        .modal-appointment {
+                            .modal {
+                                list-style-type: none;
+                                @include loginRegisterLabels();
+                            }
+                        }
+                    }
                 }
             }
 
@@ -47,5 +62,14 @@
                 }
             }
         }
+    }
+}
+
+.popup-content{
+    list-style-type: none;
+    @include loginRegisterLabels();
+
+    li {
+        margin: 10px;
     }
 }

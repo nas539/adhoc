@@ -10,7 +10,7 @@
         .body-wrapper {
             @include info-section();
             display: flex;
-            flex-direction: column;;
+            flex-direction: column;
             background-color: rgb(221, 196, 163);
             font-family: 'Fira Sans Condensed', sans-serif;
             color: white;
@@ -26,4 +26,13 @@
                         0px -2px 0 #000000;
         }
     }
+}
+@media screen and (max-width: 400px){
+    .middle {
+        font-size: 0.5em;
+    }
+
+    // . {
+    //     font-size: 0.5em;
+    // }
 }
