@@ -1,5 +1,6 @@
 .register-page-wrapper {
     @include main-wrapper();
+    height: 60vh;
     background-color: rgb(236, 71, 71);
     min-height: 100vh;
 
