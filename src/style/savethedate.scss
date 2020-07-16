@@ -5,6 +5,7 @@
     justify-items: center;
 
     .middle {
+        font-size: 0.8em;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -39,6 +40,9 @@
                 flex-direction: column;
                 width: 50%;
                 height: 50%;
+                .react-calendar__month-view__weekdays {
+                    visibility: hidden;
+                }
             }
 
             .time-wrapper {
@@ -67,7 +71,7 @@
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 780px) {
     .save-the-date-page-wrapper {
         font-size: 0.4em;
 

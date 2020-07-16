@@ -21,7 +21,8 @@ export default class Register extends Component {
         this.state = {
             username: "",
             password: "",
-            confirmPassword: ""
+            confirmPassword: "",
+            errorMessage: ""
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -31,24 +32,25 @@ export default class Register extends Component {
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value,
-            errorMessage: "none"
+            errorMessage: ""
         })
     }
 
     handleSubmit(event) {
         event.preventDefault();
-
+        this.setState({
+            errorMessage: "Sending"
+        })
         if (this.state.username === "" || this.state.password === "" || this.state.confirmPassword === "") {
             this.setState({
-                errorMessage: "blank field"
-            })
+                errorMessage: "You didn't fill out an area"
+            })   
         } else if (this.state.password !== this.state.confirmPassword) {
             this.setState({
-                errorMessage: "mismatched passwords"
-            })
+                errorMessage: "Mismatched Passwords"
+            })   
         } else {
-            fetch("https://nas-adhoc-backend.herokuapp.com//user/add", { 
-            mode: "no-cors",
+            fetch("https://nas-adhoc-backend.herokuapp.com/user/add", { 
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
@@ -58,31 +60,22 @@ export default class Register extends Component {
          })
          .then(response => response.json())
          .then(data => {
-             console.log(data)
-
              if (data === "Username taken") {
                  this.setState({
-                     errorMessage: "username taken"
-                 })
-             }
-             else {
-        
-            this.setState({
-                errorMessage: "none"
-            })
-            Cookies.set("username", this.state.username)
-            this.props.history.push("/login")
-        }
+                     errorMessage: "Username Taken"
+                 })    
+             } else {
+                this.setState({
+                    errorMessage: "User Created"
+                }) 
+            }
          })
          .catch(error => {
-             console.log(error)
              this.setState({
-                errorMessage: "fetch error"
-             })
-
+                errorMessage: "Server Problem"
+             })   
          })
         }
-
     }
     
 
@@ -128,6 +121,7 @@ export default class Register extends Component {
                                 onClick={this.handleSubmit}>
                                     Register
                             </button>
+                            <p>{this.state.errorMessage}</p>
                         </div>
                     </StyleRoot>
                     <Footer />   

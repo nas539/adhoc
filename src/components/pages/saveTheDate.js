@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { slideInRight } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
 import Calendar from 'react-calendar';
-import TimePicker from 'react-time-picker';
 
 import Header from "./header";
 import Footer from "./footer";
@@ -22,11 +21,11 @@ export default class SaveTheDateome extends Component {
             date: new Date(),
             title: "",
             company: "",
-            time: "10:00",
-            username: ""
+            time: "",
+            username: "",
+            errorMessage: ""
         }
 
-        this.handleTimeChange = this.handleTimeChange.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -44,11 +43,15 @@ export default class SaveTheDateome extends Component {
         })
       }
 
-      handleTimeChange = time => this.setState({ time: this.state.time })
-
       handleClick(event) {
         event.preventDefault();
-        fetch("https://nas-adhoc-backend.herokuapp.com//appointment/add", {
+        if (this.state.username === "" || this.state.title === "" || this.state.company === "" || this.state.time === "") {
+            this.setState({
+                errorMessage: "You didn't fill out an area"
+            })
+            alert(this.state.errorMessage)
+        }
+        fetch("https://nas-adhoc-backend.herokuapp.com/appointment/add", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
@@ -107,10 +110,12 @@ export default class SaveTheDateome extends Component {
 
                                     <div className="sheduler-section">
                                         <p>Time: </p>
-                                        <TimePicker 
-                                            className="time-wrapper"
-                                            onChange={this.handleTimeChange}
-                                            value={this.state.time}
+                                        <input 
+                                            type="text" 
+                                            name="time" 
+                                            value={this.state.time} 
+                                            placeholder="ex: 10:00 AM"
+                                            onChange={this.handleInputChange}
                                         />
                                     </div>
 

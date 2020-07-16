@@ -1,6 +1,7 @@
 .register-page-wrapper {
     @include main-wrapper();
     background-color: rgb(236, 71, 71);
+    min-height: 100vh;
 
     .middle {
         display: flex;
@@ -33,11 +34,16 @@
                 margin: 10px;
                 border: 3px solid black;
             }
+
+            p {
+                @include loginRegisterLabels();
+                color: rgb(255, 145, 145);
+            }
         }
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 700px) {
     .register-page-wrapper {
         font-size: 0.7em;
 

@@ -7,25 +7,19 @@ import Register from "./register";
 import Appointment from "./appointmentView";
 import SaveTheDate from './saveTheDate';
 
-
-
-
-
 export default class NavigationMenu extends Component {
     
- 
     render() {
-     return ( 
+     return (  
         <div className="menu-toggle">
             <HashRouter className="nav" >
                 <div> 
-                    <ul className="header" >
+                     <ul className="header" >
                         <li><NavLink  exact to="/"><i className="fas fa-home"></i></NavLink></li>
                         <li><NavLink to="/register"><i className="fas fa-user-plus"></i></NavLink></li>
-                        <li><NavLink to="/appointment"><i className="fas fa-calendar-alt"></i></NavLink></li>
-                        <li><NavLink to="/savethedate"><i className="fas fa-plus-square"></i></NavLink></li>   
+                        <li><NavLink to="/savethedate"><i className="fas fa-plus-square"></i></NavLink></li> 
+                        <li><NavLink to="/appointment"><i className="fas fa-calendar-alt"></i></NavLink></li>  
                     </ul>
-                   
                     <div className="content">
                         <Route exact path="/" component={Home}/>
                         <Route path="/login" component={Login}/>

@@ -20,8 +20,8 @@ export default class MonthView extends Component {
         this.state = {
             data: [],
             username: "",
+            errorMessage: ""
         }
-
         this.handleInputChange = this.handleInputChange.bind(this);
         this.getAppointments = this.getAppointments.bind(this);
     }
@@ -30,24 +30,42 @@ export default class MonthView extends Component {
         this.setState({
             [event.target.name]: event.target.value,
         })
-      }
+    }
 
     getAppointments() {
-        fetch(`https://nas-adhoc-backend.herokuapp.com//appointment/get/data/${this.state.username}`, {
+        this.setState({
+            errorMessage: "Getting Appointments"
+        })
+        if (this.state.username === "") {
+            this.setState({
+                errorMessage: "Enter username"
+            })
+        }
+        fetch(`https://nas-adhoc-backend.herokuapp.com/appointment/get/data/${this.state.username}`, {
             method: "GET",
             header: { "Content-Type": "application/json" }
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data); 
             this.setState({
                 data: data
-            }) 
+            })
+            if (this.state.data === "") {
+                this.setState({
+                    errorMessage: "Add appointments"
+                })
+            } else {
+                this.setState({
+                    errorMessage: "Your appointments"
+                })
+            }
          })
         .catch(error => {
             console.log(error)
-        })
-        
+            this.setState({
+                errorMessage: "Server error"
+            })
+        }) 
     }
 
     renderAppointments() {
@@ -85,7 +103,8 @@ export default class MonthView extends Component {
                                     placeholder="Username"
                                     onChange={this.handleInputChange}
                                 />
-                                <button type="button" onClick={this.getAppointments}>Get Appointments</button>
+                                <button type="button" onClick={this.getAppointments}>Get APpointments</button>
+                                <p id="error">{this.state.errorMessage}</p>
                             </div>
                             
                             <div className="appointments">

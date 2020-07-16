@@ -2,32 +2,26 @@
 .menu-toggle {
  display: flex;
  justify-content: space-around;
+ 
   
 
 
   .header {
     list-style-type: none;
     display: flex;
-    justify-content: space-between;
-    
+    justify-content: space-around;
   }
 
   a {
     border: 3px solid transparent;
     text-decoration: none;
+    padding: 10px;
+    margin-right: 10px;
     @include loginRegisterLabels();
-
-  
-  transition: color 0.3s ease;
-
+    transition: color 0.3s ease;
     &:hover {
-        color: lightgray;
+        color: slategray;
         border-bottom: 3px solid black;
     }
-
-  }
-
-
-        
-    
+  }   
 }

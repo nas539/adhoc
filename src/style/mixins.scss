@@ -1,5 +1,6 @@
 @mixin main-wrapper {
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     width: 100vw;
     display: grid;
     grid-template-rows: 0.5fr 10fr 0.5fr;
@@ -8,7 +9,7 @@
 }
 
 @mixin info-section {
-    height: 80%;
+    height: 100%;
     width: 60%;
     display: flex;
     align-items: center; 

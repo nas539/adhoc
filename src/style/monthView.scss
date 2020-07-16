@@ -1,5 +1,6 @@
 .monthview-page-wrapper {
     @include main-wrapper();
+    height: 60vh;
     background-color: rgb(56, 119, 56);
     
     .middle {
@@ -57,12 +58,18 @@
                 button {
                     @include loginRegisterLabels();
                     margin-top: 10px;
+                    margin-bottom: 10px;
                     border: 3px solid black;
                     outline: none;
 
                     &:hover {
                         color: slategray;
                     }
+
+                    
+                }
+                #error {
+                    color: yellow;
                 }
             }
         }
@@ -78,7 +85,7 @@
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 780px) {
     .monthview-page-wrapper {
         font-size: 0.5em;
 
