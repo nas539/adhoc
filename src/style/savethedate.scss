@@ -72,6 +72,11 @@
                 color: black;
                 text-shadow: none;
             }  
+
+            #error {
+                @include loginRegisterLabels();
+                color: lightsalmon;
+            }
         }
     }
 }
@@ -84,19 +89,16 @@
             color: black;
             text-shadow: none;
 
-            .sheduler-section {
-               
+            .sheduler-section { 
                 flex-direction: column;
                 text-shadow: none;
                 color: black;
                 width: 100%;
-                font-size: 1em;
-    
-                
-                }
+                font-size: 1em;  
+            }
+
                 .calendar-wrapper {
                     .react-calendar {
-
                         .react-calendar__month-view__weekdays {
                             visibility: hidden;
                         }
@@ -108,11 +110,8 @@
                             font-size: medium;
                             color: black;
                             text-shadow: none;
-            
                         }
-                    }
-    
-                    
+                    } 
                 }
     
                 .time-wrapper {
@@ -121,8 +120,6 @@
                         font-size: 0.5em;
                     }
             }
-        }
-
-        
+        }  
     }
 }

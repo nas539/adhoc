@@ -22,7 +22,7 @@ export default class SaveTheDateome extends Component {
             company: "",
             time: "",
             username: "",
-            errorMessage: ""
+            errorMessage: "Create an Appointment"
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
