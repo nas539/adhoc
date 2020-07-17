@@ -3,7 +3,6 @@ import { slideInRight } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
 import Popup from "reactjs-popup";
 
-import Header from './header';
 import Footer from './footer';
 
 const styles = {
@@ -20,7 +19,7 @@ export default class MonthView extends Component {
         this.state = {
             data: [],
             username: "",
-            errorMessage: ""
+            errorMessage: " "
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.getAppointments = this.getAppointments.bind(this);
@@ -91,7 +90,6 @@ export default class MonthView extends Component {
     render() {
         return (
                 <div className="monthview-page-wrapper" >
-                    <Header />
                     <StyleRoot className="middle">
                         <div className="body-wrapper" style={styles.slideInRight}>
                             <div className="sheduler-section">

@@ -3,7 +3,6 @@ import { slideInRight } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
 import Calendar from 'react-calendar';
 
-import Header from "./header";
 import Footer from "./footer";
 
 const styles = {
@@ -45,11 +44,13 @@ export default class SaveTheDateome extends Component {
 
       handleClick(event) {
         event.preventDefault();
+        this.setState({
+            errorMessage: "Sending Appointment"
+        })
         if (this.state.username === "" || this.state.title === "" || this.state.company === "" || this.state.time === "") {
             this.setState({
                 errorMessage: "You didn't fill out an area"
             })
-            alert(this.state.errorMessage)
         }
         fetch("https://nas-adhoc-backend.herokuapp.com/appointment/add", {
                 method: "POST",
@@ -65,16 +66,21 @@ export default class SaveTheDateome extends Component {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
+                this.setState({
+                    errorMessage: "Appointment Created"
+                })
              })
             .catch(error => {
                 console.log(error)
              })
+             this.setState({
+                errorMessage: "Server Problems"
+            })
       }
 
     render() {
         return (
                 <div className="save-the-date-page-wrapper" >
-                    <Header />
                     <div className="middle-section-wrapper">
                         <StyleRoot className="middle">
                             <div className="body-wrapper"style={styles.slideInRight}>
@@ -131,7 +137,7 @@ export default class SaveTheDateome extends Component {
                                     </div>
                                     
                                     <button type="submit" onClick={this.handleClick}>Save</button>
-
+                                    <p id="error">{this.state.errorMessage}</p>
                             </div>
                         </StyleRoot>
                     </div>

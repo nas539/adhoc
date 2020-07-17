@@ -18,6 +18,10 @@
             justify-content: space-around;
             align-items: center;
 
+            #error {
+                @include loginRegisterLabels();
+            }
+
             .register-section {
                 @include loginRegisterSection();
                 
@@ -40,6 +44,7 @@
                 @include loginRegisterLabels();
                 color: rgb(255, 145, 145);
             }
+           
         }
     }
 }

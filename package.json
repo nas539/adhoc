@@ -75,6 +75,7 @@
     "postcss-loader": "^2.1.6",
     "radium": "^0.26.0",
     "react": "16.13.1",
+    "react-animated-variablewidth-sidenavbar-withrouting": "^1.0.17",
     "react-animations": "^1.0.0",
     "react-big-calendar": "^0.26.0",
     "react-calendar": "^3.1.0",

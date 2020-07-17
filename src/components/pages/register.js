@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { slideInRight } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
-import Cookies from 'js-cookie';
-import Header from "./header";
+
 import Footer from "./footer";
 
 
@@ -22,7 +21,7 @@ export default class Register extends Component {
             username: "",
             password: "",
             confirmPassword: "",
-            errorMessage: ""
+            errorMessage: " "
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -82,7 +81,6 @@ export default class Register extends Component {
     render() {
         return (
                 <div className="register-page-wrapper" >
-                    <Header />
                     <StyleRoot className="middle">
                         <div className="body-wrapper"style={styles.slideInRight}>
                             <div className="register-section">

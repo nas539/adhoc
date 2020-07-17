@@ -3,7 +3,6 @@ import { slideInRight } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
 import Cookies from 'js-cookie';
 
-import Header from "./header";
 import Footer from "./footer";
 
 
@@ -83,7 +82,6 @@ export default class Login extends Component {
     render() {
         return (
                 <div className="login-page-wrapper" >
-                    <Header />  
                     <StyleRoot>
                     <div className="body-wrapper" style={styles.slideInRight} >
                         <div className="login-top">

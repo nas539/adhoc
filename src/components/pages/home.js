@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { slideInRight } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
-import Header from "./header";
+
 import Footer from "./footer";
 
 
@@ -18,7 +18,6 @@ export default class Home extends Component {
         return (
             
                 <div className="home-page-wrapper" >
-                    <Header />
                     <StyleRoot className="middle">
                     <div className="body-wrapper" style={styles.slideInRight}>
                         <p>Looking for a job?</p> 
