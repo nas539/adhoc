@@ -1,16 +1,18 @@
 .save-the-date-page-wrapper {
     @include main-wrapper();
     background-color:  goldenrod;
-    height: 100vh;
+    height: 70vh;
     justify-items: center;
 
     .middle {
+        height: 60%;
         font-size: 0.8em;
         display: flex;
         justify-content: center;
         align-items: center;
         .body-wrapper {
             @include info-section();
+            height: 60%;
             font-size: 0.75em;
             display: flex;
             flex-direction: column;
@@ -38,8 +40,8 @@
             .calendar-wrapper {
                 display: flex;
                 flex-direction: column;
-                width: 50%;
-                height: 50%;
+                width: 60%;
+                height: 30%;
                 .react-calendar__month-view__weekdays {
                     visibility: hidden;
                 }
@@ -57,15 +59,18 @@
                     }
 
                     button {
-                        height: 100%;
+                        height: 90%;
                     }
                 }
             }
 
             button {
                 @include loginRegisterLabels();
-                margin-bottom: 10px;
-                border: 3px solid black;
+                margin-bottom: 3px;
+                margin-top: 3px;
+                border: 1px solid black;
+                color: black;
+                text-shadow: none;
             }  
         }
     }

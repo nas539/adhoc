@@ -19,7 +19,7 @@ export default class MonthView extends Component {
         this.state = {
             data: [],
             username: "",
-            errorMessage: " "
+            errorMessage: "Your Appointments "
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.getAppointments = this.getAppointments.bind(this);
@@ -55,7 +55,7 @@ export default class MonthView extends Component {
                 })
             } else {
                 this.setState({
-                    errorMessage: "Your appointments"
+                    errorMessage: "Your appointments (click for more info)"
                 })
             }
          })
@@ -101,11 +101,12 @@ export default class MonthView extends Component {
                                     placeholder="Username"
                                     onChange={this.handleInputChange}
                                 />
-                                <button type="button" onClick={this.getAppointments}>Get APpointments</button>
-                                <p id="error">{this.state.errorMessage}</p>
+                                <button type="button" onClick={this.getAppointments}>Get Appointments</button>
+                                
                             </div>
                             
                             <div className="appointments">
+                                <p id="error">{this.state.errorMessage}</p>
                                 {this.renderAppointments()}
                             </div>
                             

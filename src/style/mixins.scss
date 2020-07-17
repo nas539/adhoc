@@ -3,14 +3,15 @@
     height: 100%;
     width: 100vw;
     display: grid;
-    grid-template-rows: 4fr 0.5fr;
+    grid-template-rows: 10fr 1fr;
     align-content: center;
     align-items: center;
+    overflow: scroll;
 }
 
 @mixin info-section {
     height: 100%;
-    width: 60%;
+    width: 80%;
     display: flex;
     align-items: center; 
     justify-content: center; 
@@ -20,6 +21,7 @@
     -webkit-box-shadow: 24px 45px 63px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 24px 45px 63px 0px rgba(0,0,0,0.75);
     box-shadow: 24px 45px 63px 0px rgba(0,0,0,0.75);
+    overflow: scroll;
 }
 
 @mixin loginRegisterLabels {
