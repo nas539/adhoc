@@ -21,7 +21,7 @@ export default class Register extends Component {
             username: "",
             password: "",
             confirmPassword: "",
-            errorMessage: " "
+            errorMessage: "Register a username"
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -67,6 +67,7 @@ export default class Register extends Component {
                 this.setState({
                     errorMessage: "User Created"
                 }) 
+            
             }
          })
          .catch(error => {
