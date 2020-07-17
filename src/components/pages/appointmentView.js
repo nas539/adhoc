@@ -80,8 +80,7 @@ export default class MonthView extends Component {
                                 <li className="modal">Time: {item.time}</li>
                             </ul>
                        </Popup>
-                    </li>
-                    
+                    </li>   
                 ))}
             </ul>
         ) 
@@ -101,15 +100,13 @@ export default class MonthView extends Component {
                                     placeholder="Username"
                                     onChange={this.handleInputChange}
                                 />
-                                <button type="button" onClick={this.getAppointments}>Get Appointments</button>
-                                
+                                <button type="button" onClick={this.getAppointments}>Get Appointments</button> 
                             </div>
                             
                             <div className="appointments">
                                 <p id="error">{this.state.errorMessage}</p>
                                 {this.renderAppointments()}
-                            </div>
-                            
+                            </div>  
                         </div>
                     </StyleRoot>
                     <Footer />
