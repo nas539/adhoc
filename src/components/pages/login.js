@@ -5,14 +5,12 @@ import Cookies from 'js-cookie';
 
 import Footer from "./footer";
 
-
 const styles = {
     slideInRight: {
-
-            animation: 'x 1s',
-            animationName: Radium.keyframes(slideInRight, 'slideInRight')
+        animation: 'x 1s',
+        animationName: Radium.keyframes(slideInRight, 'slideInRight')
     }
-  }
+}
 
 export default class Login extends Component {
     constructor(props) {
@@ -57,12 +55,9 @@ export default class Login extends Component {
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
- 
                 if (data === "User NOT Verified") {
                     this.setState({ errorMessage: "not verified" })
-                }
-                else {
+                } else {
                     this.setState({ 
                         errorMessage: "none",
                         status: "loggedIn"
@@ -81,34 +76,34 @@ export default class Login extends Component {
 
     render() {
         return (
-                <div className="login-page-wrapper" >
-                    <StyleRoot>
-                    <div className="body-wrapper" style={styles.slideInRight} >
-                        <div className="login-top">
-                            <p>Username: </p>
-                            <input 
-                                type="text" 
-                                name="username" 
-                                usernameInput={this.state.usernameInput}
-                                placeholder="Username"
-                                onChange={this.handleLoginChange}
-                            />
-                        </div>
-                        <div className="login-middle">
-                            <p>Password: </p>
-                            <input 
-                                type="password" 
-                                name="password" 
-                                passwordInput={this.state.passwordInput} 
-                                placeholder="Password"
-                                onChange={this.handleLoginChange}
-                            />
-                        </div>
-                        <button type="submit" onClick={this.handleLoginSubmit}>Login</button>
+            <div className="login-page-wrapper" >
+                <StyleRoot>
+                <div className="body-wrapper" style={styles.slideInRight} >
+                    <div className="login-top">
+                        <p>Username: </p>
+                        <input 
+                            type="text" 
+                            name="username" 
+                            usernameInput={this.state.usernameInput}
+                            placeholder="Username"
+                            onChange={this.handleLoginChange}
+                        />
                     </div>
-                    </StyleRoot>
-                    <Footer />
+                    <div className="login-middle">
+                        <p>Password: </p>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            passwordInput={this.state.passwordInput} 
+                            placeholder="Password"
+                            onChange={this.handleLoginChange}
+                        />
+                    </div>
+                    <button type="submit" onClick={this.handleLoginSubmit}>Login</button>
                 </div>
+                </StyleRoot>
+                <Footer />
+            </div>
         )
     }
 }

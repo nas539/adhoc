@@ -88,29 +88,28 @@ export default class MonthView extends Component {
    
     render() {
         return (
-                <div className="monthview-page-wrapper" >
-                    <StyleRoot className="middle">
-                        <div className="body-wrapper" style={styles.slideInRight}>
-                            <div className="sheduler-section">
-                                <p>Username: </p>
-                                <input 
-                                    type="text" 
-                                    name="username" 
-                                    value={this.state.username} 
-                                    placeholder="Username"
-                                    onChange={this.handleInputChange}
-                                />
-                                <button type="button" onClick={this.getAppointments}>Get Appointments</button> 
-                            </div>
-                            
-                            <div className="appointments">
-                                <p id="error">{this.state.errorMessage}</p>
-                                {this.renderAppointments()}
-                            </div>  
-                        </div>
-                    </StyleRoot>
-                    <Footer />
-                </div> 
+            <div className="monthview-page-wrapper" >
+                <StyleRoot className="middle">
+                    <div className="body-wrapper" style={styles.slideInRight}>
+                        <div className="sheduler-section">
+                            <p>Username: </p>
+                            <input 
+                                type="text" 
+                                name="username" 
+                                value={this.state.username} 
+                                placeholder="Username"
+                                onChange={this.handleInputChange}
+                            />
+                            <button type="button" onClick={this.getAppointments}>Get Appointments</button> 
+                        </div>    
+                        <div className="appointments">
+                            <p id="error">{this.state.errorMessage}</p>
+                            {this.renderAppointments()}
+                        </div>  
+                    </div>
+                </StyleRoot>
+                <Footer />
+            </div> 
         )
     }
 }

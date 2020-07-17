@@ -4,8 +4,6 @@ import Radium, {StyleRoot} from 'radium';
 
 import Footer from "./footer";
 
-
-
 const styles = {
     slideInRight: {
         animation: 'x 1s',

@@ -65,7 +65,6 @@ export default class SaveTheDateome extends Component {
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 this.setState({
                     errorMessage: "Appointment Created"
                 })
@@ -94,7 +93,6 @@ export default class SaveTheDateome extends Component {
                                             onChange={this.handleInputChange}
                                         />
                                     </div>
-
                                     <div className="sheduler-section">
                                         <p>Company: </p>
                                         <input 
@@ -105,7 +103,6 @@ export default class SaveTheDateome extends Component {
                                             onChange={this.handleInputChange}
                                         />
                                     </div>
-
                                     <div className="sheduler-section calendar-wrapper">
                                         <p>Date: </p>
                                         <Calendar
@@ -113,7 +110,6 @@ export default class SaveTheDateome extends Component {
                                             value={this.state.date}
                                         />
                                     </div>
-
                                     <div className="sheduler-section">
                                         <p>Time: </p>
                                         <input 
@@ -124,7 +120,6 @@ export default class SaveTheDateome extends Component {
                                             onChange={this.handleInputChange}
                                         />
                                     </div>
-
                                     <div className="sheduler-section">
                                         <p>Username: </p>
                                         <input 
@@ -135,7 +130,6 @@ export default class SaveTheDateome extends Component {
                                             onChange={this.handleInputChange}
                                         />
                                     </div>
-                                    
                                     <button type="submit" onClick={this.handleClick}>Save</button>
                                     <p id="error">{this.state.errorMessage}</p>
                             </div>
