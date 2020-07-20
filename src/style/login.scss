@@ -2,8 +2,14 @@
     transition:  3s;
     @include main-wrapper();
     background-color: purple;
+    .middle {
+        height: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
     .body-wrapper {
+        height: 60%;
         @include info-section();
         background-color: lightgrey;
         display: grid;
@@ -39,4 +45,5 @@
             border: 3px solid black;
         }
     }
+}
 }

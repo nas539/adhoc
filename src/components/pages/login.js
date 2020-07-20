@@ -78,7 +78,11 @@ export default class Login extends Component {
         return (
             <div className="login-page-wrapper" >
                 <StyleRoot>
+                <div className="middle">
                     <div className="body-wrapper" style={styles.slideInRight} >
+                    <div className="login-top">
+                        <p>{this.state.errorMessage}</p>
+                        </div>
                         <div className="login-top">
                             <p>Username: </p>
                             <input 
@@ -89,7 +93,7 @@ export default class Login extends Component {
                                 onChange={this.handleLoginChange}
                             />
                         </div>
-                        <div className="login-middle">
+                        <div className="login-middle"> 
                             <p>Password: </p>
                             <input 
                                 type="password" 
@@ -100,9 +104,11 @@ export default class Login extends Component {
                             />
                         </div>
                         <button type="submit" onClick={this.handleLoginSubmit}>Login</button>
-                        <p>{this.state.errorMessage}</p>
+                        <div className="login-top">
                         <p>Or</p>
                         <button type="submit" onClick={this.logOut}>Log Out</button>
+                        </div>
+                    </div>
                     </div>
                     </StyleRoot>
                 <Footer />
