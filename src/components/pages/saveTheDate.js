@@ -132,6 +132,7 @@ export default class SaveTheDateome extends Component {
                             </div>
                         </StyleRoot>
                     </div>
+                    <Footer />
                 </div>
         )
     }
