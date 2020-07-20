@@ -43,7 +43,7 @@ export default class MonthView extends Component {
         })
         if (this.state.username === "") {
             this.setState({
-                errorMessage: "Enter username"
+                errorMessage: "Log In Please"
             })
         }
         fetch(`https://nas-back-ad.herokuapp.com/appointment/get/data/${this.state.username}`, {
@@ -55,7 +55,7 @@ export default class MonthView extends Component {
             this.setState({
                 data: data
             })
-            if (this.state.data === "") {
+            if (this.state.data.length === 0) {
                 this.setState({
                     errorMessage: "Add appointments"
                 })
@@ -68,12 +68,12 @@ export default class MonthView extends Component {
         .catch(error => {
             console.log(error)
             this.setState({
-                errorMessage: "Server error"
+                errorMessage: "One  minute, try again please!"
             })
         }) 
     }
     componentDidMount() {
-        this.renderAppointments();
+        // renderAppointments();
     }
 
     renderAppointments() {
