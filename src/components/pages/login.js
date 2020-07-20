@@ -16,36 +16,38 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
 
-        if (Cookies.get("username")) {
-            this.state.history.push("/appointments")
-        }
-
         this.state = {
             status: "loggedOut",
             username: "",
             password: "",
-            errorMessage: "none"
+            errorMessage: " Go ahead, login!"
         }
-
+        this.logOut = this.logOut.bind(this);
         this.handleLoginChange = this.handleLoginChange.bind(this);
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
+    }
+
+    logOut() {
+        Cookies.remove("username")
+        this.setState({
+            errorMessage: "Successfully logged out!"
+        })
     }
 
     handleLoginChange(event) {
         this.setState({
             [event.target.name]: event.target.value,
-            errorMessage: "none"
         })
     }
 
     handleLoginSubmit(event) {
         event.preventDefault();
+        Cookies.get("username")
         if (this.state.username === "" || this.state.password === "") {
             this.setState({ errorMessage: "blank field" })
         }
         else {
-            fetch("https://nas-adhoc-backend.herokuapp.com//user/login", {
-                mode: "no-cors",
+            fetch("https://nas-back-ad.herokuapp.com/user/verification", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
@@ -56,20 +58,18 @@ export default class Login extends Component {
             .then(response => response.json())
             .then(data => {
                 if (data === "User NOT Verified") {
-                    this.setState({ errorMessage: "not verified" })
+                    this.setState({ errorMessage: "Information wrong" })
                 } else {
                     this.setState({ 
-                        errorMessage: "none",
+                        errorMessage: "Logged In",
                         status: "loggedIn"
                     })
                     Cookies.set("username", this.state.username)
-                    this.state.history.push("/appointments")
-                    console.log("logged in")
                 }
              })
             .catch(error => {
                 console.log(error)
-                this.setState({ errorMessage: "fetch error" })
+                this.setState({ errorMessage: "Server has issues" })
              })
         }
     }
@@ -78,30 +78,33 @@ export default class Login extends Component {
         return (
             <div className="login-page-wrapper" >
                 <StyleRoot>
-                <div className="body-wrapper" style={styles.slideInRight} >
-                    <div className="login-top">
-                        <p>Username: </p>
-                        <input 
-                            type="text" 
-                            name="username" 
-                            usernameInput={this.state.usernameInput}
-                            placeholder="Username"
-                            onChange={this.handleLoginChange}
-                        />
+                    <div className="body-wrapper" style={styles.slideInRight} >
+                        <div className="login-top">
+                            <p>Username: </p>
+                            <input 
+                                type="text" 
+                                name="username" 
+                                usernameInput={this.state.usernameInput}
+                                placeholder="Username"
+                                onChange={this.handleLoginChange}
+                            />
+                        </div>
+                        <div className="login-middle">
+                            <p>Password: </p>
+                            <input 
+                                type="password" 
+                                name="password" 
+                                passwordInput={this.state.passwordInput} 
+                                placeholder="Password"
+                                onChange={this.handleLoginChange}
+                            />
+                        </div>
+                        <button type="submit" onClick={this.handleLoginSubmit}>Login</button>
+                        <p>{this.state.errorMessage}</p>
+                        <p>Or</p>
+                        <button type="submit" onClick={this.logOut}>Log Out</button>
                     </div>
-                    <div className="login-middle">
-                        <p>Password: </p>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            passwordInput={this.state.passwordInput} 
-                            placeholder="Password"
-                            onChange={this.handleLoginChange}
-                        />
-                    </div>
-                    <button type="submit" onClick={this.handleLoginSubmit}>Login</button>
-                </div>
-                </StyleRoot>
+                    </StyleRoot>
                 <Footer />
             </div>
         )

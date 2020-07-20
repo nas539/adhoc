@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { slideInRight } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
 import Calendar from 'react-calendar';
+import Cookies from 'js-cookie';
 
 import Footer from "./footer";
 
@@ -16,12 +17,16 @@ export default class SaveTheDateome extends Component {
     constructor(props){
         super(props);
 
+        if (!Cookies.get("username")) {
+            alert("You must log in!")
+          }
+
         this.state = {
             date: new Date(),
             title: "",
             company: "",
             time: "",
-            username: "",
+            username: Cookies.get("username"),
             errorMessage: "Create an Appointment"
         }
 
@@ -44,15 +49,17 @@ export default class SaveTheDateome extends Component {
 
       handleClick(event) {
         event.preventDefault();
+        Cookies.get("username")
         this.setState({
-            errorMessage: "Sending Appointment"
+            errorMessage: "Sending Appointment",
+            username: Cookies.get("username")
         })
         if (this.state.username === "" || this.state.title === "" || this.state.company === "" || this.state.time === "") {
             this.setState({
                 errorMessage: "You didn't fill out an area"
             })
         }
-        fetch("https://nas-adhoc-backend.herokuapp.com/appointment/add", {
+        fetch("https://nas-back-ad.herokuapp.com/appointment/add", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
@@ -60,7 +67,7 @@ export default class SaveTheDateome extends Component {
                     company: this.state.company,
                     date: this.state.date,
                     time: this.state.time,
-                    username: this.state.username
+                    username: Cookies.get("username")
                 })
             })
             .then(response => response.json())
@@ -120,22 +127,11 @@ export default class SaveTheDateome extends Component {
                                             onChange={this.handleInputChange}
                                         />
                                     </div>
-                                    <div className="sheduler-section">
-                                        <p>Username: </p>
-                                        <input 
-                                            type="text" 
-                                            name="username" 
-                                            value={this.state.username} 
-                                            placeholder="Username"
-                                            onChange={this.handleInputChange}
-                                        />
-                                    </div>
                                     <button type="submit" onClick={this.handleClick}>Save</button>
                                     <p id="error">{this.state.errorMessage}</p>
                             </div>
                         </StyleRoot>
                     </div>
-                    <Footer />
                 </div>
         )
     }

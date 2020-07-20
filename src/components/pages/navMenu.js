@@ -24,6 +24,7 @@ export default class NavigationMenu extends Component {
                         <ul className="header" >
                             <li><NavLink onClick={() => this.setState({ backgroundColor: "lightblue" })} exact to="/">ad.Hoc</NavLink></li>
                             <li><NavLink onClick={() => this.setState({ backgroundColor: "rgb(236, 71, 71)" })} to="/register"><i className="fas fa-user-plus"></i></NavLink></li>
+                            <li><NavLink onClick={() => this.setState({ backgroundColor: "purple" })} to="/login"><i class="fas fa-sign-in-alt"></i></NavLink></li>
                             <li><NavLink onClick={() => this.setState({ backgroundColor: "goldenrod" })} to="/savethedate"><i className="fas fa-plus-square"></i></NavLink></li> 
                             <li><NavLink onClick={() => this.setState({ backgroundColor: "rgb(56, 119, 56)" })} to="/appointments"><i className="fas fa-calendar-alt"></i></NavLink></li>  
                         </ul>

@@ -1,7 +1,7 @@
 .login-page-wrapper {
     transition:  3s;
     @include main-wrapper();
-    background-color: goldenrod;
+    background-color: purple;
 
     .body-wrapper {
         @include info-section();

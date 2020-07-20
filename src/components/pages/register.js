@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { slideInRight } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
+import Cookies from 'js-cookie';
 
 import Footer from "./footer";
 
@@ -28,8 +29,7 @@ export default class Register extends Component {
 
     handleChange(event) {
         this.setState({
-            [event.target.name]: event.target.value,
-            errorMessage: ""
+             [event.target.name]: event.target.value,
         })
     }
 
@@ -47,7 +47,7 @@ export default class Register extends Component {
                 errorMessage: "Mismatched Passwords"
             })   
         } else {
-            fetch("https://nas-adhoc-backend.herokuapp.com/user/add", { 
+            fetch("https://nas-back-ad.herokuapp.com/user/add", { 
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
@@ -65,7 +65,7 @@ export default class Register extends Component {
                 this.setState({
                     errorMessage: "User Created"
                 }) 
-            
+                Cookies.set("username", this.state.username)
             }
          })
          .catch(error => {
