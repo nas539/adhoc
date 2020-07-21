@@ -18,7 +18,7 @@ export default class SaveTheDateome extends Component {
         super(props);
 
         if (!Cookies.get("username")) {
-            alert("You must log in!")
+            window.location.href=("/#/login")
           }
 
         this.state = {

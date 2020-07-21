@@ -17,22 +17,15 @@ export default class Login extends Component {
         super(props);
 
         this.state = {
-            status: "loggedOut",
             username: "",
             password: "",
             errorMessage: " Go ahead, login!"
         }
-        this.logOut = this.logOut.bind(this);
+        
         this.handleLoginChange = this.handleLoginChange.bind(this);
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     }
 
-    logOut() {
-        Cookies.remove("username")
-        this.setState({
-            errorMessage: "Successfully logged out!"
-        })
-    }
 
     handleLoginChange(event) {
         this.setState({
@@ -62,9 +55,10 @@ export default class Login extends Component {
                 } else {
                     this.setState({ 
                         errorMessage: "Logged In",
-                        status: "loggedIn"
+                        
                     })
                     Cookies.set("username", this.state.username)
+                    window.location.href=("/#/savethedate")
                 }
              })
             .catch(error => {
@@ -104,10 +98,7 @@ export default class Login extends Component {
                             />
                         </div>
                         <button type="submit" onClick={this.handleLoginSubmit}>Login</button>
-                        <div className="login-top">
-                        <p>Or</p>
-                        <button type="submit" onClick={this.logOut}>Log Out</button>
-                        </div>
+    
                     </div>
                     </div>
                     </StyleRoot>
