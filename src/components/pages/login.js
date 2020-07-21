@@ -22,7 +22,7 @@ export default class Login extends Component {
             password: "",
             errorMessage: " Go ahead, login!"
         }
-        this.logOut = this.logOut.bind(this);
+       
         this.handleLoginChange = this.handleLoginChange.bind(this);
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     }
@@ -33,14 +33,7 @@ export default class Login extends Component {
         })
     }
 
-    logOut(event) {
-        event.preventDefault();
-        Cookies.remove("username")
-        window.location.href=("/")
-        this.setState({
-            loggedIn: false
-        })
-    }
+    
 
     handleLoginSubmit(event) {
         event.preventDefault();

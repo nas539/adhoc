@@ -14,13 +14,21 @@ export default class NavigationMenu extends Component {
         super(props);
 
         this.state = {
-            backgroundColor: "lightgray",
+            backgroundColor: "lightgray"
             
         }
-
+        this.logOut = this.logOut.bind(this);
     }
 
-    
+    logOut() {
+        console.log("test")
+        
+        Cookies.remove("username")
+        window.location.href=("/")
+        this.setState({
+            loggedIn: false
+        })
+    }
 
     render() {
         const loggedOutNav =
@@ -34,6 +42,7 @@ export default class NavigationMenu extends Component {
                 <ul className="header" >
                     <li><NavLink exact to="/">ad.Hoc</NavLink></li>
                     <li><NavLink to="/savethedate"><i className="fas fa-plus-square"></i></NavLink></li> 
+                    <li><NavLink to="/login"><i className="fas fa-sign-in-alt"></i></NavLink></li>
                     <li><NavLink to="/appointments"><i className="fas fa-calendar-alt"></i></NavLink></li>
                     <li><button onClick={this.props.logOut}>LogOut</button></li>
                 </ul>
@@ -42,7 +51,14 @@ export default class NavigationMenu extends Component {
             <div className="menu-toggle" style={{backgroundColor: this.state.backgroundColor}}>
                 <HashRouter className="nav" >
                     <div> 
-                             {this.props.loggedIn === false ? loggedOutNav : loggedInNav }
+                    <ul className="header" >
+                    <li><NavLink exact to="/">ad.Hoc</NavLink></li>
+                    <li><NavLink to="/register"><i className="fas fa-user-plus"></i></NavLink></li>
+                    <li><NavLink to="/savethedate"><i className="fas fa-plus-square"></i></NavLink></li> 
+                    <li><NavLink to="/appointments"><i className="fas fa-calendar-alt"></i></NavLink></li>
+                    <li><button onClick={this.logOut}>LogOut</button></li>
+                </ul>
+                             {/* {this.props.loggedIn === false ? loggedOutNav : loggedInNav } */}
                         <div className="content"> 
                             <Route exact path="/" component={Home}/>
                             <Route path="/login" component={Login}/>
