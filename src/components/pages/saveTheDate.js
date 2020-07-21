@@ -80,7 +80,7 @@ export default class SaveTheDateome extends Component {
                 console.log(error)
              })
              this.setState({
-                errorMessage: "Server Problems"
+                errorMessage: "..."
             })
       }
 

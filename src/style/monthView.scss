@@ -11,13 +11,13 @@
         .body-wrapper {
             @include info-section();
             height: 100%;
-            background-color: lightsteelblue;
+            background-color: lightgray;
             display: flex;
 
             .appointments {
                 #error {
                     @include loginRegisterLabels();
-                    color: lightgreen;
+                    color: rgb(56, 119, 56);
                 }
 
                 .appointment {
@@ -34,8 +34,8 @@
                             margin-right: 30px;
 
                             &:hover {
-                                border-bottom: 2px solid black;
-                                color: lightsalmon;
+                                border-bottom: 2px solid rgb(61, 129, 61);
+                                color: rgb(61, 129, 61);
                             }
                         }
                     
@@ -76,7 +76,7 @@
                     outline: none;
 
                     &:hover {
-                        color: lightgreen;
+                        color:rgb(69, 141, 69);
                     } 
                 }
             }

@@ -75,7 +75,7 @@ export default class Login extends Component {
                 <div className="middle">
                     <div className="body-wrapper" style={styles.slideInRight} >
                     <div className="login-top">
-                        <p>{this.state.errorMessage}</p>
+                        <p id="error">{this.state.errorMessage}</p>
                         </div>
                         <div className="login-top">
                             <p>Username: </p>

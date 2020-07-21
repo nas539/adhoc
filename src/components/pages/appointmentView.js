@@ -27,6 +27,7 @@ export default class MonthView extends Component {
         this.getAppointments = this.getAppointments.bind(this);
     }
 
+
     handleInputChange(event) {
         this.setState({
             [event.target.name]: event.target.value,
@@ -41,12 +42,7 @@ export default class MonthView extends Component {
         this.setState({
             errorMessage: "Getting Appointments"
         })
-        if (this.state.username === "") {
-            this.setState({
-                errorMessage: "Log In Please"
-            })
-        }
-        fetch(`https://nas-back-ad.herokuapp.com/appointment/get/data/${this.state.username}`, {
+        fetch(`https://nas-back-ad.herokuapp.com/appointment/get/data/${Cookies.get("username")}`, {
             method: "GET",
             header: { "Content-Type": "application/json" }
         })
@@ -68,13 +64,11 @@ export default class MonthView extends Component {
         .catch(error => {
             console.log(error)
             this.setState({
-                errorMessage: "One  minute, try again please!"
+                errorMessage: "..."
             })
         }) 
     }
-    componentDidMount() {
-        // renderAppointments();
-    }
+   
 
     renderAppointments() {
         return (
@@ -103,12 +97,12 @@ export default class MonthView extends Component {
                         <div className="sheduler-section">
                            
                             <button type="button" onClick={this.getAppointments}>Get Appointments</button> 
-                         
-                        </div>    
-                        <div className="appointments">
+                            <div className="appointments">
                             <p id="error">{this.state.errorMessage}</p>
                             {this.renderAppointments()}
-                        </div>  
+                        </div>
+                        </div>    
+                          
                     </div>
                 </StyleRoot>
                 <Footer />

@@ -1,7 +1,7 @@
 .home-page-wrapper {
     @include main-wrapper();
     height: 60vh;
-    background-color: lightblue;
+    background-color: rgb(21, 137, 175);
     font-size: 0.8em;
    
     .middle {
@@ -13,17 +13,14 @@
             @include info-section();
             display: flex;
             flex-direction: column;
-            background-color: rgb(221, 196, 163);
+            background-color: lightgray;
             font-family: 'Fredoka One', cursive;
-            color: white;
+            letter-spacing: 0.2rem;
+            color: darkslategray;
             text-shadow: 0 1px hsl(0,0%,85%),
                                0 2px hsl(0,0%,80%),
                                0 3px hsl(0,0%,75%),
-                               0 4px hsl(0,0%,70%),
-                               0 5px hsl(0,0%,65%),
-                               0 6px hsl(0,0%,60%),
-                               0 7px hsl(0,0%,55%),
-                               0 7px 14px black;
+                               0 4px 14px black;
             font-size: 1.4em;
             margin-right: 5px;
 

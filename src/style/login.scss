@@ -11,7 +11,7 @@
     .body-wrapper {
         height: 60%;
         @include info-section();
-        background-color: rgb(132, 194, 233);
+        background-color: lightgray;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -26,6 +26,10 @@
 
             input {
                 height: 20%;
+            }
+
+            #error {
+                color: rgb(71, 2, 71);
             }
         }
 
@@ -48,12 +52,12 @@
             border: 3px solid darkgray;
             border-radius: 5px;
             height: 11%;
-            background-color: lightgray;
+            background-color: white;
 
             &:hover {
                 outline: none;
-                color: darkslategray;
-               
+                color: purple;
+                border: 3px solid purple;
             }
         }
     }
