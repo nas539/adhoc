@@ -15,20 +15,12 @@ export default class NavigationMenu extends Component {
 
         this.state = {
             backgroundColor: "lightgray",
-            loggedIn: false
+            
         }
 
-        this.logOut = this.logOut.bind(this);
     }
 
-    logOut() {
-        event.preventDefault();
-        Cookies.remove("username")
-        window.location.href=("/")
-        this.setState({
-            loggedIn: false
-        })
-    }
+    
 
     render() {
         const loggedOutNav =
@@ -50,7 +42,7 @@ export default class NavigationMenu extends Component {
             <div className="menu-toggle" style={{backgroundColor: this.state.backgroundColor}}>
                 <HashRouter className="nav" >
                     <div> 
-                             {this.state.loggedIn === false ? loggedOutNav : loggedInNav }
+                             {this.props.loggedIn === false ? loggedOutNav : loggedInNav }
                         <div className="content"> 
                             <Route exact path="/" component={Home}/>
                             <Route path="/login" component={Login}/>

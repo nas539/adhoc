@@ -10,6 +10,32 @@
     list-style-type: none;
     display: flex;
     justify-content: space-around;
+
+    button {
+      background-color: transparent;
+     border: 3px solid transparent;
+     text-decoration: none;
+     @include loginRegisterLabels();
+     font-size: 1.8em;
+    
+       font-family: 'Fredoka One', cursive;
+       color: white;
+       text-shadow: 0 1px hsl(0,0%,85%),
+                          0 2px hsl(0,0%,80%),
+                          0 3px hsl(0,0%,75%),
+                          0 4px hsl(0,0%,70%),
+                          0 5px hsl(0,0%,65%),
+                          0 6px hsl(0,0%,60%),
+                          0 7px hsl(0,0%,55%),
+                          0 7px 14px black;
+     transition: color 0.3s ease;
+
+     &:hover {
+      color: slategray;
+     
+  }
+   }
+
   }
 
   a {
@@ -30,6 +56,8 @@
                          0 7px hsl(0,0%,55%),
                          0 7px 14px black;
     transition: color 0.3s ease;
+
+   
     
     &:hover {
         color: slategray;

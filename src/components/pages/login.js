@@ -17,20 +17,28 @@ export default class Login extends Component {
         super(props);
 
         this.state = {
+            loggedIn: false,
             username: "",
             password: "",
             errorMessage: " Go ahead, login!"
         }
-        
+        this.logOut = this.logOut.bind(this);
         this.handleLoginChange = this.handleLoginChange.bind(this);
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     }
 
-    
-
     handleLoginChange(event) {
         this.setState({
             [event.target.name]: event.target.value,
+        })
+    }
+
+    logOut(event) {
+        event.preventDefault();
+        Cookies.remove("username")
+        window.location.href=("/")
+        this.setState({
+            loggedIn: false
         })
     }
 
@@ -56,6 +64,7 @@ export default class Login extends Component {
                 } else {
                     this.setState({ 
                         errorMessage: "Logged In", 
+                        loggedIn: true
                     })
                     Cookies.set("username", this.state.username)
                     window.location.href=("/#/savethedate")
