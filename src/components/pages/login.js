@@ -26,6 +26,7 @@ export default class Login extends Component {
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     }
 
+    
 
     handleLoginChange(event) {
         this.setState({
@@ -54,8 +55,7 @@ export default class Login extends Component {
                     this.setState({ errorMessage: "Information wrong" })
                 } else {
                     this.setState({ 
-                        errorMessage: "Logged In",
-                        
+                        errorMessage: "Logged In", 
                     })
                     Cookies.set("username", this.state.username)
                     window.location.href=("/#/savethedate")

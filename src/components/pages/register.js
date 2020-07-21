@@ -67,6 +67,7 @@ export default class Register extends Component {
                 }) 
                 Cookies.set("username", this.state.username)
                 window.location.href=("/#/savethedate")
+                
             }
          })
          .catch(error => {
@@ -116,7 +117,10 @@ export default class Register extends Component {
                             </div>
                             <button 
                                 type="submit"
-                                onClick={this.handleSubmit}>
+                                onClick={this.handleSubmit}
+    
+                                >
+                                
                                     Register
                             </button>
                             <p>{this.state.errorMessage}</p>
