@@ -38,6 +38,7 @@
 
             button {
                 @include loginRegisterLabels();
+                outline: none;
                 margin: 10px;
                 border: 3px solid darkgray;
                 border-radius: 5px;
@@ -61,7 +62,7 @@
 
 @media screen and (max-width: 700px) {
     .register-page-wrapper {
-        font-size: 1em;
+        font-size: 1.2em;
 
         .register-section {
             flex-direction: column;

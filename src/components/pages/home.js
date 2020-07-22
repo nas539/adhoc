@@ -21,7 +21,7 @@ export default class Home extends Component {
                     <p>When necessary or needed</p> 
                     <p>Click <i className="fas fa-user-plus icon"></i>  to add your username</p> 
                     <p>Click <i class="fas fa-sign-in-alt icon"></i> login/out</p> 
-                    <p>Click <i className="fas fa-calendar-alt icon"></i> to see you appointments</p> 
+                    <p>Click <i className="fas fa-calendar-alt icon"></i> to see your appointments</p> 
                     <p>Click <i class="fas fa-plus-square icon"></i> to add appointments</p>
                 </div>
                 </StyleRoot>
