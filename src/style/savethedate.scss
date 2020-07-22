@@ -90,7 +90,7 @@
 
 @media screen and (max-width: 780px) {
     .save-the-date-page-wrapper {
-        font-size: 0.4em;
+        font-size: 1em;
 
         .body-wrapper {
             color: black;
@@ -98,9 +98,10 @@
 
             .sheduler-section { 
                 text-shadow: none;
+                flex-direction: column;
                 color: black;
                 width: 100%;
-                font-size: 1em;  
+                // font-size: 1em;  
             }
 
                 .calendar-wrapper {
@@ -110,10 +111,10 @@
                         }
                     
                         button {
-                            border: none;
+                            // border: none;
                             margin-bottom: 2px;
                             margin-left: 2px;
-                            font-size: medium;
+                            // font-size: medium;
                             color: black;
                             text-shadow: none;
                         }
