@@ -51,7 +51,7 @@
                 }
 
                 .react-calendar__month-view__days {
-                    margin-left: 40px;
+                    margin-left: 30px;
                 }
             }
 
@@ -75,6 +75,8 @@
 
             button {
                 @include loginRegisterLabels();
+                width: 100%;
+                background-color: white;
                 outline: none;
                 margin-bottom: 3px;
                 margin-top: 3px;
@@ -89,9 +91,13 @@
                 }
             }  
 
+            #save-btn {
+                width: 10%;
+            }
+
             #error {
                 @include loginRegisterLabels();
-                color: rgb(170, 128, 22);
+                color: rgb(189, 141, 19);
             }
         }
     }
@@ -102,8 +108,9 @@
         font-size: 1.7em;
 
         .body-wrapper {
-            color: black;
-            text-shadow: none;
+            color: darkslategray;
+            box-shadow: none;
+            // text-shadow: none;
             button {
                 margin-top: 5px;
             }
@@ -112,8 +119,7 @@
                 text-shadow: none;
                 flex-direction: column;
                 color: black;
-                width: 100%;
-                // font-size: 1em;  
+                width: 100%; 
             }
 
                 .calendar-wrapper {
@@ -122,14 +128,12 @@
                             visibility: hidden;
                         }
                         .react-calendar__month-view__days {
-                            margin-left: 20px;
+                            margin-left: 14px;
                         }
                     
                         button {
-                            // border: none;
                             margin-bottom: 2px;
                             margin-left: 2px;
-                            // font-size: medium;
                             color: black;
                             text-shadow: none;
                         }

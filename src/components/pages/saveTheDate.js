@@ -128,7 +128,7 @@ export default class SaveTheDateome extends Component {
                                             onChange={this.handleInputChange}
                                         />
                                     </div>
-                                    <button type="submit" onClick={this.handleClick}>Save</button>
+                                    <button id="save-btn" type="submit" onClick={this.handleClick}>Save</button>
                                     <p id="error">{this.state.errorMessage}</p>
                             </div>
                         </StyleRoot>
