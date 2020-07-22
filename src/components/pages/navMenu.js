@@ -67,7 +67,7 @@ export default class NavigationMenu extends Component {
                     <li><NavLink exact to="/">ad.Hoc</NavLink></li>
                     <li><NavLink to="/savethedate"><i className="fas fa-plus-square"></i></NavLink></li> 
                     <li><NavLink to="/appointments"><i className="fas fa-calendar-alt"></i></NavLink></li>
-                    <li><button onClick={this.logOut}>LogOut</button></li>
+                    <li><a onClick={this.logOut}><i className="fas fa-sign-in-alt"></i></a></li>
                 </ul>
 
         return (  

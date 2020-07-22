@@ -3,14 +3,17 @@
     background-color:  goldenrod;
     height: 70vh;
     justify-items: center;
+    overflow: scroll;
 
     .middle {
+        overflow: auto;
         height: 60%;
         font-size: 0.8em;
         display: flex;
         justify-content: center;
         align-items: center;
         .body-wrapper {
+            overflow: scroll;
             @include info-section();
             height: 60%;
             font-size: 0.75em;
