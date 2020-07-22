@@ -66,8 +66,7 @@ export default class Register extends Component {
                     errorMessage: "User Created"
                 }) 
                 Cookies.set("username", this.state.username)
-                window.location.href=("/#/savethedate")
-                
+                window.location.href=("/#/savethedate") 
             }
          })
          .catch(error => {
