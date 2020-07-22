@@ -13,17 +13,42 @@ export default class NavigationMenu extends Component {
     constructor(props) {
         super(props);
 
+        Cookies.get("username")
+           
+
         this.state = {
-            
+            username: "",
+            loggedIn: false,
             backgroundColor: "lightgray"  
         }
 
         this.logOut = this.logOut.bind(this);
     }
 
+    componentWillUpdate() {
+        if (Cookies.get("username")) {
+            this.setState({
+                loggedIn: true
+            })
+        }
+    }
+
+    componentWillMount() {
+        if (!Cookies.get("username")) {
+            this.setState({
+                loggedIn: false
+            })
+        } else {
+            this.setState({
+                loggedIn: true
+            })
+        }
+    }
+
+    
+
     logOut() {
         console.log("test")
-        
         Cookies.remove("username")
         window.location.href=("/")
         this.setState({
@@ -44,22 +69,14 @@ export default class NavigationMenu extends Component {
                     <li><NavLink exact to="/">ad.Hoc</NavLink></li>
                     <li><NavLink to="/savethedate"><i className="fas fa-plus-square"></i></NavLink></li> 
                     <li><NavLink to="/appointments"><i className="fas fa-calendar-alt"></i></NavLink></li>
-                    <li><button onClick={this.props.logOut}>LogOut</button></li>
+                    <li><button onClick={this.logOut}>LogOut</button></li>
                 </ul>
 
         return (  
             <div className="menu-toggle" style={{backgroundColor: this.state.backgroundColor}}>
                 <HashRouter className="nav" >
                     <div> 
-                    <ul className="header" >
-                    <li><NavLink exact to="/">ad.Hoc</NavLink></li>
-                    <li><NavLink to="/register"><i className="fas fa-user-plus"></i></NavLink></li>
-                    <li><NavLink to="/login"><i className="fas fa-sign-in-alt"></i></NavLink></li>
-                    <li><NavLink to="/savethedate"><i className="fas fa-plus-square"></i></NavLink></li> 
-                    <li><NavLink to="/appointments"><i className="fas fa-calendar-alt"></i></NavLink></li>
-                    <li><button onClick={this.logOut}>LogOut</button></li>
-                </ul>
-                             {/* {this.props.loggedIn === false ? loggedOutNav : loggedInNav } */}
+                             {!this.state.loggedIn ? loggedOutNav : loggedInNav }
                         <div className="content"> 
                             <Route exact path="/" component={Home}/>
                             <Route path="/login" component={Login}/>

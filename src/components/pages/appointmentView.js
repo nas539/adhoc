@@ -18,6 +18,10 @@ export default class MonthView extends Component {
     constructor(props){
         super(props);
 
+        if (!Cookies.get("username")) {
+            window.location.href=("/#/login")
+          }
+
         this.state = {
             data: [],
             username: "",

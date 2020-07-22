@@ -59,6 +59,7 @@ export default class Login extends Component {
                         errorMessage: "Logged In", 
                         loggedIn: true
                     })
+                    Cookies.set("username")
                     Cookies.set("username", this.state.username)
                     window.location.href=("/#/savethedate")
                 }
