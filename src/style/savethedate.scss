@@ -46,6 +46,10 @@
                 width: 60%;
                 height: 30%;
 
+                button {
+                    width: auto;
+                }
+
                 .react-calendar__month-view__weekdays {
                     visibility: hidden;
                 }
@@ -75,7 +79,7 @@
 
             button {
                 @include loginRegisterLabels();
-                width: 100%;
+                width: 20%;
                 background-color: white;
                 outline: none;
                 margin-bottom: 3px;
@@ -105,9 +109,16 @@
 
 @media screen and (max-width: 780px) {
     .save-the-date-page-wrapper {
-        font-size: 1.7em;
+        font-size: 1.5em;
+        overflow: scroll;
+
+        .middle {
+            
+        
 
         .body-wrapper {
+        
+            overflow: scroll;
             color: darkslategray;
             box-shadow: none;
             // text-shadow: none;
@@ -132,10 +143,23 @@
                             visibility: hidden;
                         }
                         .react-calendar__month-view__days {
-                            margin-left: 14px;
+                            align-content: center;
+                            margin-left: 70px;
+                            width: 80%;
+
+                            .react-calendar__month-view__days__day {
+                                text-align: center;
+                                width: 100%;
+
+                                abbr {
+                                    margin-right: 5px;
+                                }
+                            }
+
                         }
                     
                         button {
+                            text-align: center;
                             margin-bottom: 2px;
                             margin-left: 2px;
                             color: black;
@@ -151,5 +175,30 @@
                     }
             }
         }  
+    }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .save-the-date-page-wrapper {
+        font-size: 1em;
+
+        .middle {
+
+            .body-wrapper {
+
+            
+        .calendar-wrapper {
+            .react-calendar {
+                .react-calendar__month-view__weekdays {
+                    visibility: hidden;
+                }
+                .react-calendar__month-view__days {
+                    margin-left: 35px;
+                }
+            }
+        }
+    }
+}
     }
 }
