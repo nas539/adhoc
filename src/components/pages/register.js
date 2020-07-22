@@ -65,7 +65,7 @@ export default class Register extends Component {
                 this.setState({
                     errorMessage: "User Created"
                 }) 
-                Cookies.set("username", this.state.username)
+               
                 window.location.href=("/#/login") 
             }
          })
