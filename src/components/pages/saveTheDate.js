@@ -21,6 +21,7 @@ export default class SaveTheDateome extends Component {
             window.location.href=("/#/login")
           }
 
+          
         this.state = {
             date: new Date(),
             title: "",

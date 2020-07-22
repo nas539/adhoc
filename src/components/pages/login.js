@@ -16,6 +16,10 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
 
+        if (Cookies.get("username")) {
+            window.location.href=("/#/savethedate")
+          }
+
         this.state = {
             loggedIn: false,
             username: "",
@@ -61,6 +65,7 @@ export default class Login extends Component {
                     })
                     Cookies.set("username")
                     Cookies.set("username", this.state.username)
+                    window.location.reload();
                     window.location.href=("/#/savethedate")
                 }
              })
