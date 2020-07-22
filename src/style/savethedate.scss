@@ -90,11 +90,14 @@
 
 @media screen and (max-width: 780px) {
     .save-the-date-page-wrapper {
-        font-size: 1.2em;
+        font-size: 1.4em;
 
         .body-wrapper {
             color: black;
             text-shadow: none;
+            button {
+                margin-top: 5px;
+            }
 
             .sheduler-section { 
                 text-shadow: none;
