@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { slideInRight } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
-import Cookies from 'js-cookie';
 
 import Footer from "./footer";
 
@@ -65,8 +64,6 @@ export default class Register extends Component {
                 this.setState({
                     errorMessage: "User Created"
                 }) 
-               
-                window.location.href=("/#/login") 
             }
          })
          .catch(error => {
