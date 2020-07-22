@@ -45,8 +45,6 @@ export default class NavigationMenu extends Component {
         }
     }
 
-    
-
     logOut() {
         console.log("test")
         Cookies.remove("username")
