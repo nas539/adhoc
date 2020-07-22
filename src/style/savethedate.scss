@@ -42,8 +42,13 @@
                 flex-direction: column;
                 width: 60%;
                 height: 30%;
+
                 .react-calendar__month-view__weekdays {
                     visibility: hidden;
+                }
+
+                .react-calendar__month-view__days {
+                    margin-left: 40px;
                 }
             }
 
@@ -111,6 +116,9 @@
                     .react-calendar {
                         .react-calendar__month-view__weekdays {
                             visibility: hidden;
+                        }
+                        .react-calendar__month-view__days {
+                            margin-left: 20px;
                         }
                     
                         button {
