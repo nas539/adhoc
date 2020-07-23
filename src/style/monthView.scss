@@ -13,6 +13,7 @@
             height: 50vh;
             background-color: lightgray;
             display: flex;
+            overflow: scroll;
 
             .appointments {
                 #error {

@@ -5,6 +5,7 @@ import Popup from "reactjs-popup";
 import Cookies from 'js-cookie';
 
 import Footer from './footer';
+import { ImageSlideshow } from 'material-ui/svg-icons';
 
 
 const styles = {
@@ -25,7 +26,8 @@ export default class MonthView extends Component {
         this.state = {
             data: [],
             username: "",
-            errorMessage: "Your Appointments "
+            errorMessage: "Your Appointments ",
+            click: ""
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.getAppointments = this.getAppointments.bind(this);
@@ -61,7 +63,8 @@ export default class MonthView extends Component {
                 })
             } else {
                 this.setState({
-                    errorMessage: "Your appointments (click for more info)"
+                    errorMessage: "Your appointments",
+                    click: "click below for more info"
                 })
             }
          })
@@ -71,6 +74,8 @@ export default class MonthView extends Component {
                 errorMessage: "..."
             })
         }) 
+        
+        
     }
    
 
@@ -103,6 +108,7 @@ export default class MonthView extends Component {
                             <button type="button" onClick={this.getAppointments}>Get Appointments</button> 
                             <div className="appointments">
                             <p id="error">{this.state.errorMessage}</p>
+                            <p id="error">{this.state.click}</p>
                             {this.renderAppointments()}
                         </div>
                         </div>    

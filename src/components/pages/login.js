@@ -82,9 +82,7 @@ export default class Login extends Component {
                 <StyleRoot>
                 <div className="middle">
                     <div className="body-wrapper" style={styles.slideInRight} >
-                    <div className="login-top">
-                        <p id="error">{this.state.errorMessage}</p>
-                        </div>
+                   
                         <div className="login-top">
                             <p>Username: </p>
                             <input 
@@ -106,7 +104,9 @@ export default class Login extends Component {
                             />
                         </div>
                         <button type="submit" onClick={this.handleLoginSubmit}>Login</button>
-    
+                        <div className="login-top">
+                        <p id="error">{this.state.errorMessage}</p>
+                        </div>
                     </div>
                     </div>
                     </StyleRoot>
