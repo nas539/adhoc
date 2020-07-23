@@ -42,8 +42,11 @@ export default class Login extends Component {
     handleLoginSubmit(event) {
         event.preventDefault();
         Cookies.get("username")
+        this.setState({
+            errorMessage: "logging in.."
+        })
         if (this.state.username === "" || this.state.password === "") {
-            this.setState({ errorMessage: "blank field" })
+            this.setState({ errorMessage: "All feilds required!" })
         }
         else {
             fetch("https://nas-back-ad.herokuapp.com/user/verification", {
