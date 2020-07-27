@@ -51,15 +51,15 @@ export default class SaveTheDateome extends Component {
       handleClick(event) {
         event.preventDefault();
         Cookies.get("username")
-        this.setState({
-            errorMessage: "Sending Appointment",
-            username: Cookies.get("username")
-        })
         if (this.state.title === "" && this.state.company === "") {
             this.setState({
                 errorMessage: "Title and Company are required"
             })
         }
+        this.setState({
+            errorMessage: "Sending Appointment",
+            username: Cookies.get("username")
+        })
         fetch("https://nas-back-ad.herokuapp.com/appointment/add", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
